@@ -4,9 +4,19 @@ interface Props{
   text: String
 }
 
+const clickHandler = () =>{
+  return(event: React.MouseEvent) =>{
+    console.log();
+    event.preventDefault()
+  }
+
+}
 const App: React.FC<Props>  = ({text}) => {
   return (
-    <div>{text}</div>
+    <div>
+      <button onClick={clickHandler()}>Click me!</button>
+      {text}
+    </div>
   );
 };
 

@@ -1,2 +1,4 @@
-package Entities;public interface ICartEntity {
+package Entities;
+
+public interface ICartEntity {
 }

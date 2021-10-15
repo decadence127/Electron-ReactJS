@@ -1,2 +1,4 @@
-package Entities;public interface IUnitTypeEntity {
+package Entities;
+
+public interface IUnitTypeEntity {
 }

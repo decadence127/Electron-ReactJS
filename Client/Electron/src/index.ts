@@ -1,4 +1,5 @@
 import { app, BrowserWindow } from 'electron';
+const path = require("path")
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 
@@ -10,6 +11,9 @@ const createWindow = (): void => {
   const mainWindow = new BrowserWindow({
     height: 600,
     width: 800,
+    // webPreferences:{
+    //   preload: path.join(__dirname, "preload.ts")
+    // }
   });
 
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
