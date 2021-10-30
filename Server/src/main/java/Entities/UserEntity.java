@@ -4,27 +4,27 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "userEntity", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "UserId"),
-        @UniqueConstraint(columnNames = "userEmail")
+@Table(name = "user_entity", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "User_id"),
+        @UniqueConstraint(columnNames = "user_email")
 })
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "userId", unique = true, nullable = false)
+    @Column(name = "user_id", unique = true, nullable = false)
     private Integer userId;
 
-    @Column(name = "userName", unique = false, nullable = false, length = 36)
+    @Column(name = "user_name", unique = false, nullable = false, length = 36)
     private String userName;
-    @Column(name = "userLogin", unique = false, nullable = false, length = 36)
+    @Column(name = "user_login", unique = false, nullable = false, length = 36)
     private String userLogin;
-    @Column(name = "userPassword", unique = false, nullable = false, length = 24)
+    @Column(name = "user_password", unique = false, nullable = false, length = 24)
     private String userPassword;
-    @Column(name = "userEmail", unique = true, nullable = false, length = 100)
+    @Column(name = "user_email", unique = true, nullable = false, length = 100)
     private String userEmail;
-    @Column(name = "userRole", unique = false, nullable = false)
+    @Column(name = "user_role", unique = false, nullable = false)
     private Integer userRole;
-    @JoinColumn(name = "cartId")
+    @JoinColumn(name = "cart_id")
     @OneToOne(fetch = FetchType.LAZY)
     private Cart cart;
 

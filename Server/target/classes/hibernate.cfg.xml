@@ -16,7 +16,7 @@
 
         <mapping class="Entities.UserEntity"/>
         <mapping class="Entities.DeclaredUnit"/>
-        <mapping class="Entities.UnitType"/>
+        <mapping class="Entities.CustomsCategory"/>
         <mapping class="Entities.Cart"/>
         <mapping class="Entities.UnitDesc"/>
 

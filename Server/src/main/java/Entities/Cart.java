@@ -10,7 +10,7 @@ import java.util.Set;
 @Table(name = "cart")
 public class Cart {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "cart_id", unique = true, nullable = false)
     private Integer cart_id;
     @OneToOne(mappedBy = "cart", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -30,10 +30,13 @@ public class Cart {
                 '}';
     }
 
-    public Cart() {}
+    public Cart() {
+    }
+
     public List<DeclaredUnit> getDeclaredUnits() {
         return units;
     }
+
     public void setItems(List<DeclaredUnit> units) {
         this.units = units;
     }

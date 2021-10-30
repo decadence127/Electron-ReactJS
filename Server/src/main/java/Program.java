@@ -11,7 +11,7 @@ public class Program {
         var unitController = new DBRequestController<DeclaredUnit>(DeclaredUnit.class);
         var cartController = new DBRequestController<Cart>(Cart.class);
         var unitDescriptionController = new DBRequestController<UnitDesc>(UnitDesc.class);
-        var unitTypeController = new DBRequestController<UnitType>(UnitType.class);
+        var unitTypeController = new DBRequestController<CustomsCategory>(CustomsCategory.class);
         //
         Cart cart = new Cart();
 
@@ -21,12 +21,12 @@ public class Program {
         unit.setCart(cart);
         decUnit.setCart(cart);
 
-        unit.setUnitType(new UnitType("Instrument"));
-        decUnit.setUnitType(new UnitType("Car"));
+        unit.setCustomsCategory(new CustomsCategory("Instrument", 4));
+        decUnit.setCustomsCategory(new CustomsCategory("Car", 18));
         decUnit.setUnitDesc(new UnitDesc("Mediocre car from 90's. Non-repairable", "2021-30-10"));
         unit.setUnitDesc(new UnitDesc("Cool flashlight from aliexpress", "2021-30-10"));
 
-        UserEntity user = new UserEntity("aasd", "cvbvc", "asd", "dsdtg", 3, cart);
+        UserEntity user = new UserEntity("aasd", "cvbvc", "asd", "sddtg", 3, cart);
 
         unitController.add(unit);
         unitController.add(decUnit);

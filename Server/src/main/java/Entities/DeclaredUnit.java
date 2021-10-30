@@ -3,36 +3,39 @@ package Entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name="declaredUnit", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "UNIT_ID"),
+@Table(name = "declared_unit", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "unit_id"),
 })
 public class DeclaredUnit {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name = "UNIT_ID", unique = true, nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "unit_id", unique = true, nullable = false)
     private Integer unitId;
-    @Column(name="DEC_UNIT_NAME", unique = false, nullable = false, length = 128)
+    @Column(name = "unit_title", unique = false, nullable = false, length = 128)
     private String unitName;
-    @Column(name="TAX_VALUE", unique = false, nullable = true, length = 12)
+    @Column(name = "tax_value", unique = false, nullable = true, length = 12)
     private float customsValue;
 
-    @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="cart_id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cart_id")
     private Cart cart;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "desc_id")
     private UnitDesc desc;
 
-    @ManyToOne(cascade=CascadeType.ALL)
-    private UnitType unitType;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "category_id")
+    private CustomsCategory category;
 
 
-    public DeclaredUnit( String unitName, float customsValue) {
+    public DeclaredUnit(String unitName, float customsValue) {
         this.unitName = unitName;
         this.customsValue = customsValue;
     }
-    public DeclaredUnit(){}
+
+    public DeclaredUnit() {
+    }
 
 
     public String getUnitName() {
@@ -51,18 +54,20 @@ public class DeclaredUnit {
         this.customsValue = customsValue;
     }
 
-    public void setUnitDesc(UnitDesc desc){
+    public void setUnitDesc(UnitDesc desc) {
         this.desc = desc;
     }
-    public UnitDesc getUnitDesc(){
+
+    public UnitDesc getUnitDesc() {
         return desc;
     }
-    public UnitType getUnitType() {
-        return unitType;
+
+    public CustomsCategory getCustomsCategory() {
+        return category;
     }
 
-    public void setUnitType(UnitType unitType) {
-        this.unitType = unitType;
+    public void setCustomsCategory(CustomsCategory category) {
+        this.category = category;
     }
 
     public Cart getCart() {
@@ -75,7 +80,7 @@ public class DeclaredUnit {
                 "unitId=" + unitId +
                 ", unitName='" + unitName + '\'' +
                 ", customsValue=" + customsValue +
-                ", unitType=" + unitType +
+                ", unitType=" + category +
                 '}';
     }
 

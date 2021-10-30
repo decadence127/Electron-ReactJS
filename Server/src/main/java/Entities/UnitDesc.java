@@ -3,15 +3,15 @@ package Entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "unitDesc")
+@Table(name = "unit_description")
 public class UnitDesc {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name="desc_id", unique = true, nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "desc_id", unique = true, nullable = false)
     private Integer descId;
-    @Column(name="unit_desc", unique = false, nullable = true, length = 256)
+    @Column(name = "unit_desc", unique = false, nullable = true, length = 256)
     private String unitDescription;
-    @Column(name="unit_arrivalDate", unique=false, nullable = false)
+    @Column(name = "unit_arrivalDate", unique = false, nullable = false)
     private String arrivalDate;
 
     @OneToOne(mappedBy = "desc", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -21,7 +21,9 @@ public class UnitDesc {
         this.unitDescription = unitDescription;
         this.arrivalDate = arrivalDate;
     }
-    public UnitDesc(){}
+
+    public UnitDesc() {
+    }
 
     public String getUnitDescription() {
         return unitDescription;
