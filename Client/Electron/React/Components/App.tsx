@@ -6,7 +6,6 @@ interface Props{
 
 const clickHandler = () =>{
   return(event: React.MouseEvent) =>{
-    console.log();
     event.preventDefault()
   }
 

@@ -1,64 +1,45 @@
 package Entities;
 
-import Utils.HibernateUtil;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-
 import javax.persistence.*;
-import java.util.List;
+
 
 @Entity
-public class UserEntity implements IUserEntity{
-    private String userName;
-    private String userLogin;
-    private String userPassword;
-    private String userEmail;
-
-    private Integer userRole;
+@Table(name = "userEntity", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "UserId"),
+        @UniqueConstraint(columnNames = "userEmail")
+})
+public class UserEntity {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "userId", unique = true, nullable = false)
     private Integer userId;
 
-    public UserEntity(String userName, String userLogin, String userPassword, String userEmail, Integer userRole) {
+    @Column(name = "userName", unique = false, nullable = false, length = 36)
+    private String userName;
+    @Column(name = "userLogin", unique = false, nullable = false, length = 36)
+    private String userLogin;
+    @Column(name = "userPassword", unique = false, nullable = false, length = 24)
+    private String userPassword;
+    @Column(name = "userEmail", unique = true, nullable = false, length = 100)
+    private String userEmail;
+    @Column(name = "userRole", unique = false, nullable = false)
+    private Integer userRole;
+    @JoinColumn(name = "cartId")
+    @OneToOne(fetch = FetchType.LAZY)
+    private Cart cart;
+
+
+    public UserEntity(String userName, String userLogin, String userPassword, String userEmail, Integer userRole, Cart cart) {
         this.userName = userName;
         this.userLogin = userLogin;
         this.userPassword = userPassword;
         this.userEmail = userEmail;
         this.userRole = userRole;
+        this.cart = cart;
     }
 
-    public UserEntity() {}
-
-
-    @Override
-    public List<UserEntity> GetAllUsersRequest() {
-        String hql = "from UserEntity";
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.getTransaction().begin();
-        List<UserEntity> users = session.createQuery(hql).getResultList();
-        session.getTransaction().commit();
-        return users;
+    public UserEntity() {
     }
-    @Override
-    public void DeleteUserRequest(Integer userId) {
-
-    }
-
-
-    @Override
-    public void CreateUserRequest() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
-        session.save(this);
-        transaction.commit();
-        session.close();
-    }
-
-    @Override
-    public void UpdateUserRequest(UserEntity user) {
-
-    }
-
 
     public String getUserName() {
         return userName;
@@ -77,6 +58,7 @@ public class UserEntity implements IUserEntity{
                 ", userEmail='" + userEmail + '\'' +
                 ", userRole=" + userRole +
                 ", userId=" + userId +
+                ", cart=" + cart +
                 '}';
     }
 

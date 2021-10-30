@@ -4,7 +4,6 @@ import Utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 public class DBRequestController<T> implements IDBRequestController<T>{
@@ -19,7 +18,7 @@ public class DBRequestController<T> implements IDBRequestController<T>{
     }
 
     @Override
-    public void update(T object) {
+    public void  update(T object) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         session.update(object);
@@ -47,7 +46,7 @@ public class DBRequestController<T> implements IDBRequestController<T>{
 
     @Override
     public List<T> showAll() {
-        String hql = "from " + this.getMyType().toString();
+        String hql = "from " + this.getMyType();
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         List<T> objects = session.createQuery(hql).getResultList();

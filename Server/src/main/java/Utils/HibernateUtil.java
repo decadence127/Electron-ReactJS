@@ -5,7 +5,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-public class HibernateUtil {
+public class HibernateUtil { // hibernate default session factory
 
     private static SessionFactory sessionFactory = buildSessionFactory();
 
@@ -14,10 +14,9 @@ public class HibernateUtil {
                 .configure()
                 .build();
         try {
-            sessionFactory = new MetadataSources( registry ).buildMetadata().buildSessionFactory();
-        }
-        catch (Exception e) {
-            StandardServiceRegistryBuilder.destroy( registry );
+            sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+        } catch (Exception e) {
+            StandardServiceRegistryBuilder.destroy(registry);
 
             throw new ExceptionInInitializerError("Initial SessionFactory failed" + e);
         }
