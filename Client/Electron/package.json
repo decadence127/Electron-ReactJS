@@ -1,6 +1,6 @@
 {
-  "name": "electron",
-  "productName": "electron",
+  "name": "ssddss",
+  "productName": "ssddss",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": ".webpack/main",
@@ -9,7 +9,7 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "eslint --ext .ts,.tsx ."
+    "lint": "echo \"No linting configured\""
   },
   "keywords": [],
   "author": {
@@ -24,7 +24,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "electron"
+            "name": "ssddss"
           }
         },
         {
@@ -52,7 +52,7 @@
               "entryPoints": [
                 {
                   "html": "./src/index.html",
-                  "js": "./src/renderer.ts",
+                  "js": "./src/renderer.jsx",
                   "name": "main_window"
                 }
               ]
@@ -63,26 +63,21 @@
     }
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
     "@electron-forge/cli": "^6.0.0-beta.61",
     "@electron-forge/maker-deb": "^6.0.0-beta.61",
     "@electron-forge/maker-rpm": "^6.0.0-beta.61",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
     "@electron-forge/maker-zip": "^6.0.0-beta.61",
     "@electron-forge/plugin-webpack": "^6.0.0-beta.61",
-    "@types/react": "^17.0.30",
-    "@types/react-dom": "^17.0.9",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
     "@vercel/webpack-asset-relocator-loader": "^1.7.0",
-    "css-loader": "^6.4.0",
-    "electron": "15.1.2",
-    "eslint": "^7.32.0",
-    "eslint-plugin-import": "^2.25.2",
-    "fork-ts-checker-webpack-plugin": "^6.3.4",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.5.1",
+    "dotenv": "^10.0.0",
+    "electron": "15.3.1",
     "node-loader": "^2.0.0",
-    "style-loader": "^3.3.0",
-    "ts-loader": "^9.2.6",
-    "typescript": "^4.4.4"
+    "style-loader": "^3.3.1"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
