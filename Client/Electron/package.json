@@ -76,12 +76,18 @@
     "css-loader": "^6.5.1",
     "dotenv": "^10.0.0",
     "electron": "15.3.1",
+    "file-loader": "^6.2.0",
     "node-loader": "^2.0.0",
     "style-loader": "^3.3.1"
   },
   "dependencies": {
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.1.0",
+    "@mui/material": "^5.1.0",
     "electron-squirrel-startup": "^1.0.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0"
   }
 }

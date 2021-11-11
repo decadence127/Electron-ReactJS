@@ -1,4 +1,5 @@
 module.exports = [
+
   {
     test: /native_modules\/.+\.node$/,
     use: "node-loader",

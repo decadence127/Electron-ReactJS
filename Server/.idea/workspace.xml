@@ -5,13 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cdd78d8-9df4-48f6-afc7-3f228c363859" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/React/Components/App.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/Electron/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/Electron/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/AppRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/AppRouter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Pages/HomePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Pages/HomePage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Pages/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Pages/LoginPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Pages/UnitsPage.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Utils/routeNames.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/Electron/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/reactIndex.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/reactIndex.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/webpack.main.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/webpack.main.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/webpack.renderer.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/webpack.renderer.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +118,7 @@
       <workItem from="1635533304342" duration="7941000" />
       <workItem from="1635594409831" duration="5999000" />
       <workItem from="1636563965080" duration="1981000" />
+      <workItem from="1636661668677" duration="486000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,7 @@
 import React, { Context, useContext, useEffect } from 'react';
 import { SocketContext } from './Context/socketContext'
-
+import { BrowserRouter, HashRouter } from 'react-router-dom'
+import AppRouter from './AppRouter.jsx';
 
 const App = () => {
   const [message, setMessage] = React.useState('');
@@ -32,13 +33,9 @@ const App = () => {
   }
 
   return (
-    <div>
-      Hello from react
-      <input onChange={(e) => setMessage(e.target.value)} type="text" />
-      <button onClick={clickHandler}>click</button>
-      <button onClick={(e) => { setReconnect(true) }}>reconnect</button>
-      {serverMessage}
-    </div>
+    <HashRouter>
+      <AppRouter />
+    </HashRouter>
   );
 };
 

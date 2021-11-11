@@ -9,4 +9,5 @@ module.exports = {
   module: {
     rules,
   },
+    devtool: 'cheap-module-source-map'
 };
