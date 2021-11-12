@@ -1,6 +1,6 @@
 {
-  "name": "ssddss",
-  "productName": "ssddss",
+  "name": "customs-app",
+  "productName": "Customs App",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": ".webpack/main",
@@ -24,7 +24,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "ssddss"
+            "name": "Customs"
           }
         },
         {

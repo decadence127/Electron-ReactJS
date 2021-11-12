@@ -1,5 +1,7 @@
 const net = require("net");
 require("dotenv").config();
+const { contextBridge, ipcRenderer } = require("electron");
+
 class socketInstance {
   constructor(port) {
     this.port = port;
@@ -36,3 +38,18 @@ class socketInstance {
 }
 console.log(process.env.PORT);
 window.clientSocket = new socketInstance(Number.parseInt(process.env.PORT));
+
+contextBridge.exposeInMainWorld("api", {
+  request: (channel, data) => {
+    let validChannels = ["toMain"];
+    if (validChannels.includes(channel)) {
+      ipcRenderer.send(channel, data);
+    }
+  },
+  response: (channel, func) => {
+    let validChannels = ["fromMain"];
+    if (validChannels.includes(channel)) {
+      ipcRenderer.on(channel, (event, ...args) => func(...args));
+    }
+  },
+});
