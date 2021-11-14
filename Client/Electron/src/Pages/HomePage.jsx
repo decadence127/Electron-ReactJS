@@ -5,8 +5,16 @@ import { Link } from 'react-router-dom';
 import { LOGIN_ROUTE, REG_ROUTE, UNIT_ROUTE, USER_ROUTE } from '../Utils/pageNames';
 
 const HomePage = () => {
+  const clickHandler = (e) => {
+    e.preventDefault();
+    (async () => {
+      console.log("called client");
+      const response = await window.api.asyncAction("test")
+      console.log(response);
+    })()
+  }
   return (
-    <Box>
+    <Box pt={4}>
       <Button>
         <Link to={LOGIN_ROUTE} replace>Login</Link>
       </Button>
@@ -18,6 +26,9 @@ const HomePage = () => {
       </Button>
       <Button>
         <Link to={USER_ROUTE} replace>User</Link>
+      </Button>
+      <Button onClick={clickHandler}>
+        AsyncAction
       </Button>
     </Box>
   );

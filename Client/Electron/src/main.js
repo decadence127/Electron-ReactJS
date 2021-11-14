@@ -2,6 +2,12 @@ const { app, BrowserWindow, remote, ipcMain } = require("electron");
 const path = require("path");
 const WindowNodeHandler = require("./ElectronComponents/WindowNodeHandler");
 
+ipcMain.handle("asyncAction", async (event, arg) => {
+  console.log("called");
+  console.log(arg);
+  console.log(event);
+  return "yes";
+});
 if (require("electron-squirrel-startup")) {
   app.quit();
 }

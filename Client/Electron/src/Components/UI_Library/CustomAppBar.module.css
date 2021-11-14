@@ -4,7 +4,7 @@ nav {
   background-color: #333333;
   -webkit-app-region: drag;
   -webkit-user-select: none;
-  position: fixed;
+  position: absolute;
   z-index: 1;
 }
 
