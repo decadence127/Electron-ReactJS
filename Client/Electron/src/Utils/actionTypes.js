@@ -1,0 +1,8 @@
+export const actionTypes = {
+  CONNECT: 0,
+  LOGIN_ACTION: 1,
+  REGISTRATION_ACTION: 2,
+  CLOSE_CONNECTION: -1,
+  SUCCESS: 200,
+  INTERNAL_ERROR: 500,
+};

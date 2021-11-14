@@ -3,10 +3,14 @@ import { Box } from '@mui/system';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { LOGIN_ROUTE, REG_ROUTE, UNIT_ROUTE, USER_ROUTE } from '../Utils/pageNames';
-
+import transferModel from "../../transferModel/transferModel"
+import { actionTypes } from '../Utils/actionTypes';
 const HomePage = () => {
+  const clickHandler = (e) => {
+    e.preventDefault();
+  }
   return (
-    <Box>
+    <Box pt={4}>
       <Button>
         <Link to={LOGIN_ROUTE} replace>Login</Link>
       </Button>

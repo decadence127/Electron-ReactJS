@@ -1,42 +1,53 @@
 import React, { Context, useContext, useEffect } from 'react';
 import { SocketContext } from './Context/socketContext'
 import { BrowserRouter, HashRouter } from 'react-router-dom'
-import AppRouter from './AppRouter.jsx';
-
+import AppRouter from './AppRouter';
+import transferModel from '../transferModel/transferModel';
+import { actionTypes } from './Utils/actionTypes';
+import ReconnectComponent from './Components/ReconnectComponent/ReconnectComponent';
+import UnsuccessfulReconnection from './Components/UnsuccessfullReconnection/UnsuccessfulReconnection';
 const App = () => {
-  const [message, setMessage] = React.useState('');
   const [reconnect, setReconnect] = React.useState(false)
-  const [serverMessage, setServerMessage] = React.useState('')
+  const [recAttempts, setRecAttempts] = React.useState(0);
+  const [reconnectedSuccessfully, setReconnectedSuccessfully] = React.useState(true)
+
+  const timer = ms => new Promise(res => setTimeout(res, ms))
 
 
-  const clientSocket = useContext(SocketContext)
+  const attemptToConnect = async () => {
+    let i = 1
+    do {
+      console.log("called attempt number: ", i);
+      const response = await window.api.asyncAction({ message: { data: "", actionType: actionTypes.CONNECT } })
+      console.log("Response code: ", response.message.actionType);
 
-  useEffect(async () => {
-    try {
-      await clientSocket.startConnection()
-      console.log("Connected in React");
-    } catch (e) {
-      console.log("Couldnt connect to the server :(")
-    }
-  }, [reconnect, clientSocket])
+      if (response.message.actionType === 500) {
+        setReconnect(true);
+        setReconnectedSuccessfully(false)
+        setRecAttempts(i);
 
-  const clickHandler = (e) => {
-    e.preventDefault();
-    clientSocket.sendDataToServer(message);
-    recvData();
+      }
+      if (response.message.actionType === 200) {
+        setReconnect(false);
+        setReconnectedSuccessfully(true)
+        break;
+      }
+      await timer(1000)
+      i++;
+    } while (i <= 10)
+    setReconnect(false)
   }
 
-  const recvData = () => {
-    clientSocket.socketInstance.on('data', (data) => {
-      setServerMessage(data.toString())
-    })
-  }
+  useEffect(() => {
+    setReconnect(true)
+    attemptToConnect()
+  }, [])
 
   return (
-    <HashRouter>
-      <AppRouter />
-    </HashRouter>
-  );
+    <>
+      {reconnect ? <ReconnectComponent attempts={recAttempts} /> : reconnectedSuccessfully ? <HashRouter> <AppRouter /> </HashRouter> : <UnsuccessfulReconnection />}
+
+    </>);
 };
 
 export default App;

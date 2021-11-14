@@ -5,15 +5,14 @@ class ElectronWindowsApi {
 
   minimize() {
     window.api.request("toMain", "minimize");
-    console.log(this.isMaximized);
-    window.api.response("fromMain", (e, message) => {
+    window.api.response("fromMain", (message) => {
       console.log(message);
     });
   }
   maximize() {
     window.api.request("toMain", "maximize");
     this.isMaximized = true;
-    window.api.response("fromMain", (e, message) => {
+    window.api.response("fromMain", (message) => {
       console.log(message);
     });
   }
