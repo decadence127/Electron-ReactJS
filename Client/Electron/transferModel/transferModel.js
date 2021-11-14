@@ -1,6 +1,6 @@
-class responseModel {
-  constructor(data = "", actionType) {
-    this.response = {
+class transferModel {
+  constructor(data, actionType) {
+    this.message = {
       data,
       actionType,
     };
@@ -12,4 +12,4 @@ class responseModel {
     JSON.stringify(this.response);
   }
 }
-module.exports = responseModel;
+module.exports = transferModel;

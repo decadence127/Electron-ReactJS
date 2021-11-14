@@ -1,7 +1,7 @@
 import { Box } from '@mui/system';
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router';
-import CustomAppBar from './Components/UI_Library/CustomAppBar.jsx';
+import CustomAppBar from './Components/UI_Library/CustomAppBar';
 import { HOME_ROUTE, LOGIN_ROUTE } from './Utils/pageNames';
 import { authRoutes, publicRoutes } from './Utils/routes';
 

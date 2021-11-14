@@ -1,5 +1,4 @@
 module.exports = [
-
   {
     test: /native_modules\/.+\.node$/,
     use: "node-loader",
@@ -22,6 +21,11 @@ module.exports = [
         exclude: /node_modules/,
         presets: ["@babel/preset-react"],
       },
+    },
+  },
+  {
+    resolve: {
+      extensions: [".js", ".jsx"],
     },
   },
 ];

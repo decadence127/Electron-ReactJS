@@ -3,15 +3,11 @@ import { Box } from '@mui/system';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { LOGIN_ROUTE, REG_ROUTE, UNIT_ROUTE, USER_ROUTE } from '../Utils/pageNames';
-
+import transferModel from "../../transferModel/transferModel"
+import { actionTypes } from '../Utils/actionTypes';
 const HomePage = () => {
   const clickHandler = (e) => {
     e.preventDefault();
-    (async () => {
-      console.log("called client");
-      const response = await window.api.asyncAction("test")
-      console.log(response);
-    })()
   }
   return (
     <Box pt={4}>
@@ -26,9 +22,6 @@ const HomePage = () => {
       </Button>
       <Button>
         <Link to={USER_ROUTE} replace>User</Link>
-      </Button>
-      <Button onClick={clickHandler}>
-        AsyncAction
       </Button>
     </Box>
   );
