@@ -1,3 +1,3 @@
-<h1>Client side</h1>
+[Client part]
 
-Tech stack: ElectronJS, TypeScript, ReactJs, Webpack
+Tech stack: ElectronJS, ReactJs, Webpack

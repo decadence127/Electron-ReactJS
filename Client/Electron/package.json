@@ -1,15 +1,16 @@
 {
-  "name": "electron",
-  "productName": "electron",
+  "name": "customs-app",
+  "productName": "Customs App",
   "version": "1.0.0",
   "description": "My Electron application description",
-  "main": ".webpack/main",
+  "main": "./.webpack/main",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "eslint --ext .ts,.tsx ."
+    "lint": "echo \"No linting configured\"",
+    "distribute": "electron-packager ./ Customs --platform=win32 --arch=x64 --overwrite"
   },
   "keywords": [],
   "author": {
@@ -24,7 +25,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "electron"
+            "name": "Customs"
           }
         },
         {
@@ -46,14 +47,18 @@
         [
           "@electron-forge/plugin-webpack",
           {
+            "devContentSecurityPolicy":"default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;",
             "mainConfig": "./webpack.main.config.js",
             "renderer": {
               "config": "./webpack.renderer.config.js",
               "entryPoints": [
                 {
                   "html": "./src/index.html",
-                  "js": "./src/renderer.ts",
-                  "name": "main_window"
+                  "js": "./src/renderer.jsx",
+                  "name": "main_window",
+                  "preload": {
+                    "js": "./src/preload.js"
+                  }
                 }
               ]
             }
@@ -63,30 +68,33 @@
     }
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
     "@electron-forge/cli": "^6.0.0-beta.61",
     "@electron-forge/maker-deb": "^6.0.0-beta.61",
     "@electron-forge/maker-rpm": "^6.0.0-beta.61",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
     "@electron-forge/maker-zip": "^6.0.0-beta.61",
     "@electron-forge/plugin-webpack": "^6.0.0-beta.61",
-    "@types/react": "^17.0.30",
-    "@types/react-dom": "^17.0.9",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
     "@vercel/webpack-asset-relocator-loader": "^1.7.0",
-    "css-loader": "^6.4.0",
-    "electron": "15.1.2",
-    "eslint": "^7.32.0",
-    "eslint-plugin-import": "^2.25.2",
-    "fork-ts-checker-webpack-plugin": "^6.3.4",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.5.1",
+    "dotenv": "^10.0.0",
+    "electron": "15.3.1",
+    "electron-packager": "^15.4.0",
+    "file-loader": "^6.2.0",
     "node-loader": "^2.0.0",
-    "style-loader": "^3.3.0",
-    "ts-loader": "^9.2.6",
-    "typescript": "^4.4.4"
+    "style-loader": "^3.3.1"
   },
   "dependencies": {
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.1.0",
+    "@mui/material": "^5.1.0",
     "electron-squirrel-startup": "^1.0.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
+    "socket.io-client": "4.1.2"
   }
 }
