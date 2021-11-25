@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     <list default="true" id="5cdd78d8-9df4-48f6-afc7-3f228c363859" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../Client/Electron/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/package.json" afterDir="false" />
@@ -19,6 +20,9 @@
 =======
     <list default="true" id="5cdd78d8-9df4-48f6-afc7-3f228c363859" name="Changes" comment="" />
 >>>>>>> BackEnd/backend_1
+=======
+    <list default="true" id="5cdd78d8-9df4-48f6-afc7-3f228c363859" name="Changes" comment="" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -155,8 +159,12 @@
       <workItem from="1637855169118" duration="79000" />
       <workItem from="1637855256882" duration="9709000" />
       <workItem from="1637865720990" duration="1255000" />
+<<<<<<< Updated upstream
       <workItem from="1637867020711" duration="4139000" />
 >>>>>>> BackEnd/backend_1
+=======
+      <workItem from="1637867020711" duration="4482000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
