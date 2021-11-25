@@ -40,6 +40,13 @@ class socketInstance {
     });
     return message;
   }
+<<<<<<< HEAD
+=======
+  closeConnection(callback) {
+    this.socketInstance.destroy();
+    callback("disconnected");
+  }
+>>>>>>> BackEnd/backend_1
 }
 console.log(process.env.PORT);
 module.exports = new socketInstance(Number.parseInt(process.env.PORT));

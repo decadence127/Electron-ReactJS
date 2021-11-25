@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="5cdd78d8-9df4-48f6-afc7-3f228c363859" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../Client/Electron/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/Electron/src/AppRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/AppRouter.jsx" afterDir="false" />
@@ -15,6 +16,9 @@
       <change beforePath="$PROJECT_DIR$/../Client/Electron/src/roboto.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/roboto.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/Electron/webpack.main.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/webpack.main.config.js" afterDir="false" />
     </list>
+=======
+    <list default="true" id="5cdd78d8-9df4-48f6-afc7-3f228c363859" name="Changes" comment="" />
+>>>>>>> BackEnd/backend_1
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +27,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+<<<<<<< HEAD
+=======
+        <option value="Interface" />
+>>>>>>> BackEnd/backend_1
         <option value="Class" />
       </list>
     </option>
@@ -55,9 +63,13 @@
     </option>
   </component>
   <component name="ProjectId" id="1zekHv8vYfNwpGiwwvIuwPcKOjQ" />
+<<<<<<< HEAD
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+=======
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+>>>>>>> BackEnd/backend_1
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -67,7 +79,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/Controllers" />
+=======
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect" value="PostgreSQL" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/createDb.sql" />
+>>>>>>> BackEnd/backend_1
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -86,7 +103,22 @@
   <component name="RunManager">
     <configuration name="Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Program" />
+<<<<<<< HEAD
       <module name="Server" />
+=======
+      <module name="untitled1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+>>>>>>> BackEnd/backend_1
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -114,8 +146,17 @@
       <workItem from="1635356014193" duration="6074000" />
       <workItem from="1635533304342" duration="7941000" />
       <workItem from="1635594409831" duration="5999000" />
+<<<<<<< HEAD
       <workItem from="1636563965080" duration="1981000" />
       <workItem from="1636661668677" duration="1085000" />
+=======
+      <workItem from="1637855076684" duration="55000" />
+      <workItem from="1637855138319" duration="7000" />
+      <workItem from="1637855169118" duration="79000" />
+      <workItem from="1637855256882" duration="9709000" />
+      <workItem from="1637865720990" duration="1255000" />
+      <workItem from="1637867020711" duration="4139000" />
+>>>>>>> BackEnd/backend_1
     </task>
     <servers />
   </component>
@@ -134,6 +175,7 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -144,4 +186,6 @@
       </breakpoints>
     </breakpoint-manager>
   </component>
+=======
+>>>>>>> BackEnd/backend_1
 </project>

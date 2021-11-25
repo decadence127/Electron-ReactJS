@@ -3,13 +3,18 @@
   "productName": "Customs App",
   "version": "1.0.0",
   "description": "My Electron application description",
-  "main": ".webpack/main",
+  "main": "./.webpack/main",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
+<<<<<<< HEAD
     "lint": "echo \"No linting configured\""
+=======
+    "lint": "echo \"No linting configured\"",
+    "distribute": "electron-packager ./ Customs --platform=win32 --arch=x64 --overwrite"
+>>>>>>> BackEnd/backend_1
   },
   "keywords": [],
   "author": {
@@ -46,6 +51,7 @@
         [
           "@electron-forge/plugin-webpack",
           {
+            "devContentSecurityPolicy":"default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;",
             "mainConfig": "./webpack.main.config.js",
             "renderer": {
               "config": "./webpack.renderer.config.js",
@@ -53,7 +59,14 @@
                 {
                   "html": "./src/index.html",
                   "js": "./src/renderer.jsx",
+<<<<<<< HEAD
                   "name": "main_window"
+=======
+                  "name": "main_window",
+                  "preload": {
+                    "js": "./src/preload.js"
+                  }
+>>>>>>> BackEnd/backend_1
                 }
               ]
             }
@@ -76,6 +89,10 @@
     "css-loader": "^6.5.1",
     "dotenv": "^10.0.0",
     "electron": "15.3.1",
+<<<<<<< HEAD
+=======
+    "electron-packager": "^15.4.0",
+>>>>>>> BackEnd/backend_1
     "file-loader": "^6.2.0",
     "node-loader": "^2.0.0",
     "style-loader": "^3.3.1"
@@ -88,6 +105,11 @@
     "electron-squirrel-startup": "^1.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+<<<<<<< HEAD
     "react-router-dom": "^5.2.0"
+=======
+    "react-router-dom": "^5.2.0",
+    "socket.io-client": "4.1.2"
+>>>>>>> BackEnd/backend_1
   }
 }

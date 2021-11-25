@@ -19,6 +19,7 @@ async function SocketHandler(msg, window) {
         const result = await apiFunctionWrapper(
           socketInstance.startConnection.bind(socketInstance)
         );
+<<<<<<< HEAD
         console.log("Response from socket Start", result);
         console.log("Response: ", result);
         return result;
@@ -30,6 +31,20 @@ async function SocketHandler(msg, window) {
     case "sendData": {
       BrowserWindow.getFocusedWindow().maximize();
       window.webContents.send("fromMain", "maximized");
+=======
+        return result;
+      } catch (e) {
+        console.error(e);
+      }
+      break;
+    }
+    case actionTypes.LOGIN_ACTION: {
+      try {
+        const response = await apiFunctionWrapper();
+      } catch (e) {
+        console.error(e);
+      }
+>>>>>>> BackEnd/backend_1
       break;
     }
     case "receiveData": {
@@ -37,8 +52,21 @@ async function SocketHandler(msg, window) {
       window.webContents.send("fromMain", "unmaximized");
       break;
     }
+<<<<<<< HEAD
     case "close": {
       BrowserWindow.getFocusedWindow().destroy();
+=======
+    case actionTypes.CLOSE_CONNECTION: {
+      try {
+        const result = await apiFunctionWrapper(
+          socketInstance.closeConnection.bind(socketInstance)
+        );
+        return result;
+      } catch (e) {
+        console.error(e);
+      }
+
+>>>>>>> BackEnd/backend_1
       break;
     }
   }
