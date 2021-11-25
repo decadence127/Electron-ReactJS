@@ -1,13 +1,8 @@
-const { app, BrowserWindow, remote, ipcMain } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 const SocketHandler = require("./ElectronComponents/SocketHandler");
 const WindowNodeHandler = require("./ElectronComponents/WindowNodeHandler");
 
-ipcMain.handle("asyncAction", async (event, arg) => {
-  const response = await SocketHandler(arg);
-  console.log("Response main:", response);
-  return response;
-});
 if (require("electron-squirrel-startup")) {
   app.quit();
 }
@@ -19,21 +14,27 @@ const createWindow = () => {
     height: 720,
     frame: false,
     webPreferences: {
-      nodeIntegration: true,
+      nodeIntegration: false,
       contextIsolation: true,
       enableRemoteModule: true,
-      preload: path.join(__dirname, "preload.js"),
+      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
     },
   });
 
   mainWindow.loadURL(
     path.join(__dirname, "./ElectronComponents/MainLoadingPage/loading.html")
   );
-  console.log(remote);
+
   setTimeout(() => {
     mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
-  }, 2500);
+  }, 2000);
 };
+
+// ipcMain.handle("asyncAction", async (event, arg) => {
+//   const response = await SocketHandler(arg);
+//   console.log("Response main:", response);
+//   return response;
+// });
 
 app.on("ready", createWindow);
 

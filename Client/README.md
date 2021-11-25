@@ -1,3 +1,3 @@
 [Client part]
 
-Tech stack: ElectronJS, TypeScript, ReactJs, Webpack
+Tech stack: ElectronJS, ReactJs, Webpack

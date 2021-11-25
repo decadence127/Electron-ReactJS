@@ -6,10 +6,10 @@ class transferModel {
     };
   }
   get getReponse() {
-    return this.response;
+    return this.message;
   }
   toString() {
-    JSON.stringify(this.response);
+    JSON.stringify(this.message);
   }
 }
 module.exports = transferModel;
