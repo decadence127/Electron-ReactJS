@@ -1,41 +1,19 @@
-import Controllers.DBRequestController;
-import Entities.*;
+import Context.PostgresContext;
+import Context.UserContext;
+import Models.EntityModel.UserEntityModel;
+import Utils.ConstTypes;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import java.io.IOException;
+import java.sql.SQLException;
+
 
 public class Program {
-    public static void main(String[] args) {
-        //Extract instances to another class
-        var userController = new DBRequestController<UserEntity>(UserEntity.class);
-        var unitController = new DBRequestController<DeclaredUnit>(DeclaredUnit.class);
-        var cartController = new DBRequestController<Cart>(Cart.class);
-        var unitDescriptionController = new DBRequestController<UnitDesc>(UnitDesc.class);
-        var unitTypeController = new DBRequestController<CustomsCategory>(CustomsCategory.class);
-        //
-        Cart cart = new Cart();
+    public static void main(String[] args) throws SQLException, IOException {
+        PostgresContext context = PostgresContext.getInstance();
+//        UserEntityModel user = new UserEntityModel("test2@email.com", "cooluser", "12354", "Ivan", false, ConstTypes.UserRoles.Operator);
+//        UserContext.CreateNewUser(user);
+        System.out.println(UserContext.getUserById(2));
 
-        DeclaredUnit unit = new DeclaredUnit("Flashlight", 30);
-        DeclaredUnit decUnit = new DeclaredUnit("Audi", 3000);
-
-        unit.setCart(cart);
-        decUnit.setCart(cart);
-
-        unit.setCustomsCategory(new CustomsCategory("Instrument", 4));
-        decUnit.setCustomsCategory(new CustomsCategory("Car", 18));
-        decUnit.setUnitDesc(new UnitDesc("Mediocre car from 90's. Non-repairable", "2021-30-10"));
-        unit.setUnitDesc(new UnitDesc("Cool flashlight from aliexpress", "2021-30-10"));
-
-        UserEntity user = new UserEntity("aasd", "cvbvc", "asd", "sddtg", 3, cart);
-
-        unitController.add(unit);
-        unitController.add(decUnit);
-        userController.add(user);
-
-        List<UserEntity> users = userController.showAll();
-        List<DeclaredUnit> units = unitController.showAll();
-
-        System.out.println(units.get(0).getCart().getDeclaredUnits());
-        System.out.println(users.get(0));
     }
 }
