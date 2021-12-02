@@ -1,19 +1,40 @@
 package Context;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Properties;
 
 public class PostgresContext {
-    static final String DB_URL = "jdbc:postgresql://127.0.0.1:5432/CustomsDB";
-    static final String USER = "postgres";
-    static final String PASS = "12344321";
     private static PostgresContext context;
     private Connection connection;
+    private final String url;
+    private final String user;
+    private final String pass;
 
     private PostgresContext() throws SQLException {
+        Properties props = new Properties();
+
+        URL resource = PostgresContext.class.getClassLoader().getResource("database.config.properties");
+        try {
+            assert resource != null;
+            try (InputStream in = Files.newInputStream(Path.of(resource.toURI()))) {
+                props.load(in);
+            }
+        } catch (URISyntaxException | IOException e) {
+            e.printStackTrace();
+        }
+
+        this.url = props.getProperty("DB_URL");
+        this.user = props.getProperty("DB_USER");
+        this.pass = props.getProperty("DB_PASS");
+
         if (!listDownAllDatabases().contains("CustomsDB")) {
             try {
                 CreateDatabase();
@@ -24,7 +45,7 @@ public class PostgresContext {
             System.out.println("Created database and schema");
             return;
         }
-        Connection connection = DriverManager.getConnection(DB_URL, USER, PASS);
+        Connection connection = DriverManager.getConnection(url, user, pass);
         this.connection = connection;
         System.out.println("Connected to a database");
     }
@@ -43,7 +64,7 @@ public class PostgresContext {
     private void CreateDatabase() {
         try {
             String sql = new String(Files.readAllBytes(Paths.get("createDb.sql")));
-            try (Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost/postgres", "postgres", "12344321")) {
+            try (Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost/postgres", user, pass)) {
                 Statement stmt = connection.createStatement();
                 stmt.execute(sql);
 
@@ -56,7 +77,7 @@ public class PostgresContext {
     private void CreateNewSchema() {
         try {
             String sql = new String(Files.readAllBytes(Paths.get("createSchema.sql")));
-            try (Connection connection = DriverManager.getConnection(DB_URL, USER, PASS)) {
+            try (Connection connection = DriverManager.getConnection(url, user, pass)) {
                 Statement stmt = connection.createStatement();
                 stmt.execute(sql);
                 this.connection = connection;
@@ -68,7 +89,7 @@ public class PostgresContext {
 
     private ArrayList<String> listDownAllDatabases() {
         ArrayList<String> arr = new ArrayList<>();
-        try (Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost/postgres", "postgres", "12344321")) {
+        try (Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost/postgres", user, pass)) {
             PreparedStatement ps = connection
                     .prepareStatement("SELECT datname FROM pg_database WHERE datistemplate = false;");
             ResultSet rs = ps.executeQuery();

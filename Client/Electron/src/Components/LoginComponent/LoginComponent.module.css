@@ -1,0 +1,13 @@
+.loginBox {
+  display: flex;
+  min-height: 90%;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.loginBox .textInput {
+  min-width: 280px;
+}
+.loginBox a {
+  text-decoration: none;
+}

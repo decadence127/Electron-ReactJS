@@ -1,0 +1,37 @@
+.appBar {
+  padding-top: 36px;
+  position: relative;
+  box-shadow: none;
+  border-bottom: 1px solid grey;
+  background-color: white;
+  max-height: 60px;
+}
+.inline {
+  display: "inline";
+}
+.flex {
+  display: flex;
+}
+.link {
+  text-decoration: none;
+  color: "inherit";
+}
+.tagline {
+  display: inline-block;
+  margin-left: 10;
+}
+.iconContainer {
+  display: "none";
+}
+
+.iconButton {
+  float: right;
+}
+.tabItem {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  min-width: auto;
+}
+.tabContainer {
+  margin-left: 32px;
+}

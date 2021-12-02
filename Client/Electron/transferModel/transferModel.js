@@ -1,15 +1,15 @@
-class transferModel {
+export class TransferModel {
   constructor(data, actionType) {
-    this.message = {
-      data,
-      actionType,
-    };
+    this.ActionType = actionType;
+    this.TransferObject = data;
   }
   get getReponse() {
-    return this.message;
+    return {
+      ...this.ActionType,
+      ...this.TranferObject,
+    };
   }
   toString() {
-    JSON.stringify(this.message);
+    JSON.stringify({ ...this.ActionType, ...this.TransferObject });
   }
 }
-module.exports = transferModel;

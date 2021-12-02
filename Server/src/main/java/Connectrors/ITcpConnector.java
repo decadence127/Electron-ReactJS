@@ -9,4 +9,5 @@ public interface ITcpConnector {
     TransferModel getMessageFromClient() throws IOException, ClassNotFoundException;
     void sendMessageToClient(TransferModel object) throws IOException;
     void closeConnection() throws IOException;
+
 }

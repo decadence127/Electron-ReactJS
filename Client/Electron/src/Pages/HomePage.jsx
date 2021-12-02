@@ -5,24 +5,17 @@ import { Link } from 'react-router-dom';
 import { LOGIN_ROUTE, REG_ROUTE, UNIT_ROUTE, USER_ROUTE } from '../Utils/pageNames';
 import transferModel from "../../transferModel/transferModel"
 import { actionTypes } from '../Utils/actionTypes';
+import { useQueryHandler } from '../Hooks/queryHandler.hook';
 const HomePage = () => {
-  const clickHandler = (e) => {
+  const { request } = useQueryHandler();
+  const clickHandler = async (e) => {
     e.preventDefault();
+    const response = await request("http://localhost:9119/login", { ...new TransferModel({}, actionTypes.LOGIN_ACTION) })
   }
   return (
     <Box pt={4}>
-      <Button>
-        <Link to={LOGIN_ROUTE} replace>Login</Link>
-      </Button>
-      <Button>
-        <Link to={REG_ROUTE} replace>Registration</Link>
-      </Button>
-      <Button>
-        <Link to={UNIT_ROUTE} replace>Unit</Link>
-      </Button>
-      <Button>
-        <Link to={USER_ROUTE} replace>User</Link>
-      </Button>
+      HomePage!)
+      <Button onClick={async e => await clickHandler(e)}></Button>
     </Box>
   );
 };

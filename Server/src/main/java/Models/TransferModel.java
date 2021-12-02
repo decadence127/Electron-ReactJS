@@ -2,5 +2,18 @@ package Models;
 
 public class TransferModel {
     public int ActionType;
-    public String TransferObject;
+    public Object TransferObject;
+    public TransferModel(){};
+    public TransferModel(int actionType, Object transferObject) {
+        ActionType = actionType;
+        TransferObject = transferObject;
+    }
+
+    @Override
+    public String toString() {
+        return "TransferModel{" +
+                "ActionType=" + ActionType +
+                ", TransferObject='" + TransferObject + '\'' +
+                '}';
+    }
 }
