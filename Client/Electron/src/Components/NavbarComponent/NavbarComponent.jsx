@@ -2,7 +2,7 @@ import { AppBar, Toolbar, Typography, IconButton, Menu, MenuItem, Container, Too
 import { Box } from '@mui/system';
 import MenuIcon from '@mui/icons-material/Menu';
 import React from 'react';
-import { HOME_ROUTE, LOGIN_ROUTE, UNIT_ROUTE, USERS_ROUTE } from '../../Utils/pageNames';
+import { HOME_ROUTE, LOGIN_ROUTE, UNIT_ROUTE, USERS_ROUTE, USER_ROUTE } from '../../Utils/pageNames';
 import classes from "./NavbarComponent.module.css"
 import { useTheme } from '@mui/material/styles';
 import { useHistory } from 'react-router';
@@ -13,7 +13,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { Link } from 'react-router-dom';
 
 
-const pages = [{ title: 'Калькулятор', route: HOME_ROUTE }, { title: 'Войти', route: LOGIN_ROUTE }];
+
 
 
 
@@ -25,8 +25,10 @@ const NavbarComponent = observer(() => {
   const history = useHistory();
   const { user } = React.useContext(Context);
   const { colorMode } = React.useContext(Context);
-
-  const authPages = user.userData.userRole === 3 ? [{ title: 'Калькулятор', route: HOME_ROUTE }, { title: 'Список ваших вещей', route: UNIT_ROUTE }, { title: 'Список всех пользователей', route: USERS_ROUTE }] : [{ title: 'Калькулятор', route: HOME_ROUTE }, { title: 'Список ваших вещей', route: UNIT_ROUTE }]
+  const pages = [{ title: 'Калькулятор', route: HOME_ROUTE }, { title: 'Войти', route: LOGIN_ROUTE }];
+  const authPages = user.userData.userRole === 3
+    ? [{ title: 'Калькулятор', route: HOME_ROUTE }, { title: 'Список всех вещей', route: UNIT_ROUTE }, { title: 'Список всех пользователей', route: USERS_ROUTE }]
+    : [{ title: 'Калькулятор', route: HOME_ROUTE }, { title: 'Список всех вещей', route: UNIT_ROUTE }]
 
 
   const logoutHandler = () => {
@@ -38,7 +40,7 @@ const NavbarComponent = observer(() => {
   }
 
   const openProfileHandler = () => {
-    console.log("clicked");
+    history.push(USER_ROUTE);
   }
   const itemHandler = () => {
     console.log("clicked");

@@ -5,6 +5,9 @@ export const actionTypes = {
   CALC_GOODS_ACTION: 4,
   CALC_AUTO_ACTION: 5,
   RETRIVEVE_USERS: 6,
+  ADD_UNIT: 7,
+  GET_UNITS: 8,
+  GET_ALL_UNITS: 9,
   CLOSE_CONNECTION: -1,
 };
 export const executionResults = {

@@ -22,6 +22,7 @@ public class ControllerProvider {
         requestControllers.add(new CustomsGoodsCalculationController());
         requestControllers.add(new CustomsAutoCalculationController());
         requestControllers.add(new RetrieveAllUsersController());
+        requestControllers.add(new AddUnitController());
     }
 
     public TransferResponseModel Execute(TransferRequestModel clientMessage) {

@@ -1,5 +1,4 @@
 const net = require("net");
-
 class TCPController {
   constructor(port) {
     this.port = port;

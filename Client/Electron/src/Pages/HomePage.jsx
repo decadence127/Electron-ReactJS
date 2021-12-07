@@ -5,12 +5,16 @@ import CalculatorComponent from '../Components/CalculatorComponent/CalculatorCom
 import ConfigData from "../configData.json";
 import { TransferModel } from '../../transferModel/transferModel';
 import { actionTypes } from '../Utils/actionTypes';
-const HomePage = () => {
+import { observer } from 'mobx-react-lite';
+import { Context } from '../renderer';
+import UserCalculatorComponent from '../Components/UserCalculatorComponent/UserCalculatorComponent';
+
+const HomePage = observer(() => {
   const { loading, request } = useQueryHandler();
   const [calcData, setCalcData] = React.useState({});
-  const [carCalcData, setCarCalcData] = React.useState({});
   const [calcType, setCalcType] = React.useState("item");
-  const [carType, setCarType] = React.useState("phys");
+  const [unit, setUnit] = React.useState();
+  const { user } = React.useContext(Context);
   const typeChanger = (value) => {
     setCalcType(value);
   }
@@ -22,19 +26,28 @@ const HomePage = () => {
         await request(ConfigData.queryLink, { ...new TransferModel({ ...calcData }, actionTypes.CALC_GOODS_ACTION) }) :
         await request(ConfigData.queryLink, { ...new TransferModel({ ...calcData }, actionTypes.CALC_AUTO_ACTION) })
 
-      console.log(JSON.parse(response.executionResult).responseModel.taxValue);
       setTax(JSON.parse(response.executionResult).responseModel.taxValue);
     } catch (e) {
       setError(e)
     }
   }
 
+
+  useEffect(() => {
+    (async () => {
+      if (user.isAuth) {
+        const response = await request(ConfigData.queryLink, { ...new TransferModel({ ...unit, ['taxValue']: tax, ['cartId']: user.userData.cartId }, actionTypes.ADD_UNIT) })
+        console.log(response);
+      }
+    })()
+  }, [tax, user])
+
   return (
     <>
       {loading && <LinearProgress />}
-      <CalculatorComponent setTax={setTax} tax={tax} calcType={calcType} setCalcType={typeChanger} calcData={calcData} setCalcData={setCalcData} clickHandler={clickHandler} error={error} />
+      {user.isAuth ? <UserCalculatorComponent unit={unit} setUnit={setUnit} setError={setError} setTax={setTax} tax={tax} calcType={calcType} setCalcType={typeChanger} calcData={calcData} setCalcData={setCalcData} clickHandler={clickHandler} error={error} /> : <CalculatorComponent setTax={setTax} tax={tax} calcType={calcType} setCalcType={typeChanger} calcData={calcData} setCalcData={setCalcData} clickHandler={clickHandler} error={error} />}
     </>
   );
-};
+});
 
 export default HomePage;

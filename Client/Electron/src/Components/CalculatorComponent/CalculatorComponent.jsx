@@ -1,7 +1,12 @@
 import { TextField, Select, Box, MenuItem, Button, Typography, FormControl, InputLabel } from '@mui/material';
 import React from 'react';
 import PaperContainer from '../PaperContainer/PaperContainer';
+
+
+
 const CalculatorComponent = ({ setTax, tax, error, clickHandler, calcData, setCalcData, calcType, setCalcType }) => {
+
+
   const handleChange = (e) => {
     setCalcType(e.target.value);
     setCalcData({});
