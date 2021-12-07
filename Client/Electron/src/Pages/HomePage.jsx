@@ -1,22 +1,39 @@
-import { Button } from '@mui/material';
-import { Box } from '@mui/system';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { LOGIN_ROUTE, REG_ROUTE, UNIT_ROUTE, USER_ROUTE } from '../Utils/pageNames';
-import transferModel from "../../transferModel/transferModel"
-import { actionTypes } from '../Utils/actionTypes';
+import React, { useEffect } from 'react';
 import { useQueryHandler } from '../Hooks/queryHandler.hook';
+import { LinearProgress } from '@mui/material';
+import CalculatorComponent from '../Components/CalculatorComponent/CalculatorComponent';
+import ConfigData from "../configData.json";
+import { TransferModel } from '../../transferModel/transferModel';
+import { actionTypes } from '../Utils/actionTypes';
 const HomePage = () => {
-  const { request } = useQueryHandler();
-  const clickHandler = async (e) => {
-    e.preventDefault();
-    const response = await request("http://localhost:9119/login", { ...new TransferModel({}, actionTypes.LOGIN_ACTION) })
+  const { loading, request } = useQueryHandler();
+  const [calcData, setCalcData] = React.useState({});
+  const [carCalcData, setCarCalcData] = React.useState({});
+  const [calcType, setCalcType] = React.useState("item");
+  const [carType, setCarType] = React.useState("phys");
+  const typeChanger = (value) => {
+    setCalcType(value);
   }
+  const [tax, setTax] = React.useState();
+  const [error, setError] = React.useState();
+  const clickHandler = async (e) => {
+    try {
+      const response = calcType === "item" ?
+        await request(ConfigData.queryLink, { ...new TransferModel({ ...calcData }, actionTypes.CALC_GOODS_ACTION) }) :
+        await request(ConfigData.queryLink, { ...new TransferModel({ ...calcData }, actionTypes.CALC_AUTO_ACTION) })
+
+      console.log(JSON.parse(response.executionResult).responseModel.taxValue);
+      setTax(JSON.parse(response.executionResult).responseModel.taxValue);
+    } catch (e) {
+      setError(e)
+    }
+  }
+
   return (
-    <Box pt={4}>
-      HomePage!)
-      <Button onClick={async e => await clickHandler(e)}></Button>
-    </Box>
+    <>
+      {loading && <LinearProgress />}
+      <CalculatorComponent setTax={setTax} tax={tax} calcType={calcType} setCalcType={typeChanger} calcData={calcData} setCalcData={setCalcData} clickHandler={clickHandler} error={error} />
+    </>
   );
 };
 

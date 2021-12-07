@@ -17,6 +17,9 @@ export function useQueryHandler() {
           "Content-Type": "application/json",
         },
       });
+      // if (response.data.executionCode && response.data.executionCode == 1) {
+      //   throw new Error(response.data.errorMessage || "Internal Error");
+      // }
       setLoading(false);
       return response.data;
     } catch (e) {

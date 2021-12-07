@@ -1,6 +1,7 @@
 package Models.EntityModel;
 
 public class UserEntityModel {
+    int Id;
     String email;
     String login;
     String password;
@@ -49,6 +50,11 @@ public class UserEntityModel {
     public void setName(String name) {
         Name = name;
     }
+
+    public int getId() {
+        return Id;
+    }
+
 
     public Boolean getBanned() {
         return isBanned;

@@ -3,6 +3,6 @@ const router = Router();
 const mainController = require("./Controller/MainController");
 
 router.post("/", mainController.start);
-router.post("/login", mainController.send);
+router.post("/query", mainController.send);
 
 module.exports = router;

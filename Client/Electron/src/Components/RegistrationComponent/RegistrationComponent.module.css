@@ -1,0 +1,19 @@
+.regBox {
+  margin-top: 10px;
+  display: flex;
+  min-height: 450px;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.outerRegBox {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+}
+.regBox .textInput {
+  min-width: 280px;
+}
+.regBox a {
+  text-decoration: none;
+}

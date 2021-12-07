@@ -3,9 +3,10 @@ import Connectrors.TcpConnector;
 import Context.PostgresContext;
 import Context.UserContext;
 import Controllers.ThreadHandler;
-import Models.TransferModel;
+import Models.EntityModel.UserEntityModel;
+import Models.TransferModels.TransferRequestModel;
+import Models.TransferModels.TransferResponseModel;
 import Utils.ConstTypes;
-import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -14,9 +15,6 @@ import java.sql.SQLException;
 public class Program {
     public static void main(String[] args) throws SQLException, IOException {
         PostgresContext context = PostgresContext.getInstance();
-//        UserEntityModel user = new UserEntityModel("test2@email.com", "cooluser", "12354", "Ivan", false, ConstTypes.UserRoles.Operator);
-//        UserContext.CreateNewUser(user);
-        System.out.println(UserContext.getUserById(1));
         ITcpConnector initialTcpConnector = new TcpConnector(5000);
 
         System.out.println("Server started on 127.0.0.1:" + 5000 + "!");
@@ -32,7 +30,7 @@ public class Program {
                     int connectionPort = Utils.Randomize.getRandom();
 
                     System.out.println("Client will run on port " + connectionPort);
-                    initialTcpConnector.sendMessageToClient(new TransferModel(ConstTypes.ExecutionResult.SUCCESS_CODE, connectionPort));
+                    initialTcpConnector.sendMessageToClient(new TransferResponseModel(ConstTypes.ExecutionResult.SUCCESS_CODE, String.valueOf(connectionPort)));
 
                     Thread handlerThread = new Thread(new ThreadHandler(connectionPort));
                     handlerThread.start();

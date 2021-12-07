@@ -1,6 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
-const SocketHandler = require("./ElectronComponents/SocketHandler");
 const WindowNodeHandler = require("./ElectronComponents/WindowNodeHandler");
 
 if (require("electron-squirrel-startup")) {
@@ -27,14 +26,8 @@ const createWindow = () => {
 
   setTimeout(() => {
     mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
-  }, 2000);
+  }, 1000);
 };
-
-// ipcMain.handle("asyncAction", async (event, arg) => {
-//   const response = await SocketHandler(arg);
-//   console.log("Response main:", response);
-//   return response;
-// });
 
 app.on("ready", createWindow);
 

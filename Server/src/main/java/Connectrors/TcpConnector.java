@@ -1,14 +1,15 @@
 package Connectrors;
 
-import Models.TransferModel;
+import Models.TransferModels.TransferRequestModel;
+import Models.TransferModels.TransferResponseModel;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
-import java.util.stream.Collectors;
 
 public class TcpConnector implements ITcpConnector{
 
@@ -34,7 +35,7 @@ public class TcpConnector implements ITcpConnector{
     }
 
     @Override
-    public TransferModel getMessageFromClient() throws IOException, ClassNotFoundException {
+    public TransferRequestModel getMessageFromClient() throws IOException, ClassNotFoundException {
         int len = 65536;
         byte[] receivedBytes = new byte[len];
         inputStream.read(receivedBytes, 0, len);
@@ -42,11 +43,11 @@ public class TcpConnector implements ITcpConnector{
         String jsonObject = new String(receivedBytes, 0, len, StandardCharsets.UTF_8);
         JsonReader reader = new JsonReader(new StringReader(jsonObject));
         reader.setLenient(true);
-    return new Gson().fromJson(reader, TransferModel.class);
+    return new Gson().fromJson(reader, TransferRequestModel.class);
     }
 
     @Override
-    public void sendMessageToClient(TransferModel object) throws IOException {
+    public void sendMessageToClient(TransferResponseModel object) throws IOException {
         var jsonObject = new Gson().toJson(object);
 
         byte[] toSendBytes = jsonObject.getBytes(StandardCharsets.UTF_8);

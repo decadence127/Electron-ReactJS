@@ -1,13 +1,9 @@
-package Models;
+package Models.TransferModels;
 
-public class TransferModel {
+public class TransferRequestModel {
     public int ActionType;
-    public Object TransferObject;
-    public TransferModel(){};
-    public TransferModel(int actionType, Object transferObject) {
-        ActionType = actionType;
-        TransferObject = transferObject;
-    }
+    public String TransferObject;
+
 
     @Override
     public String toString() {

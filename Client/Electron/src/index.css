@@ -1,5 +1,5 @@
 @import url("./roboto.css");
-
+/* properties below are not currently needed due to mui usage */
 :root {
   --palette-main: #f0f2f5;
   --palette-secondary: #a7adc0;
@@ -17,6 +17,7 @@ html {
   margin: 0;
   padding: 0;
   height: 100%;
+  max-height: 100vh;
 }
 body {
   background: var(--palette-main);

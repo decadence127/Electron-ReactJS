@@ -1,2 +1,5 @@
-package Models.ResponseModels;public class RegistrationResponseTransferModel {
+package Models.ResponseModels;
+
+public class RegistrationResponseTransferModel {
+
 }

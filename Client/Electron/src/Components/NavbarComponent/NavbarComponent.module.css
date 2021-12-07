@@ -1,6 +1,6 @@
 .appBar {
   padding-top: 36px;
-  position: relative;
+  position: sticky;
   box-shadow: none;
   border-bottom: 1px solid grey;
   background-color: white;

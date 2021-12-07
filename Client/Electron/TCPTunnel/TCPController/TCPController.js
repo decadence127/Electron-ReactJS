@@ -6,15 +6,19 @@ class TCPController {
     this.clientSocket = null;
   }
   startConnection() {
-    this.clientSocket = net.connect(
-      {
-        host: "localhost",
-        port: this.port,
-      },
-      () => {
-        console.log("Connected to server");
-      }
-    );
+    try {
+      this.clientSocket = net.connect(
+        {
+          host: "localhost",
+          port: this.port,
+        },
+        () => {
+          console.log("Connected to server");
+        }
+      );
+    } catch (e) {
+      console.error(e);
+    }
   }
   closeConnection() {
     this.clientSocket.destroy();

@@ -1,4 +1,4 @@
-package models.transferModels.responses;
+package Models.ExecutionResponse;
 
 public class SuccessTransferResponseModel<T>  {
     public T responseModel;

@@ -5,64 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f63b3cd-da5b-44fd-b771-40d4e08399e8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/ThreadHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Utils/Randomize.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/database.config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Models/EntityModel/UnitCustomsCategoryEntityModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/TCPService/clientSocket.js" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerImplementation/CustomsGoodsCalculationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Models/ExecutionResponse/ErrorTransferResponseModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Models/ExecutionResponse/SuccessTransferResponseModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Models/RequestModels/CustomsCalcGoodsRequestTransferModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Models/ResponseModels/CustomsCalcGoodsResponseTransferModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Models/ResponseModels/RegistrationResponseTransferModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/TCPTunnel/Controller/MainController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/TCPTunnel/Controller/MainController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/TCPTunnel/TCPController/TCPController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/TCPTunnel/TCPController/TCPController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/TCPTunnel/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/TCPTunnel/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/Electron/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/Electron/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/Electron/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/AppRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/AppRouter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Components/LoginComponent/LoginComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Components/LoginComponent/LoginComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Components/NavbarComponent/NavbarComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Components/NavbarComponent/NavbarComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Components/NavbarComponent/NavbarComponent.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Components/NavbarComponent/NavbarComponent.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Components/PaperContainer/PaperContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Components/PaperContainer/PaperContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Components/UI_Library/CustomAppBar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Components/UI_Library/CustomAppBar.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Context/Store/userStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Context/Store/userStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Context/userContext.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Hooks/queryHandler.hook.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Hooks/queryHandler.hook.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Pages/HomePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Pages/HomePage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Pages/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Pages/LoginPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Pages/RegistrationPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Pages/RegistrationPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Utils/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Utils/actionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Utils/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Utils/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/renderer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/renderer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/Electron/transferModel/transferModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/transferModel/transferModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_12_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_12_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_12_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_xml_fastinfoset_FastInfoset_1_2_15.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_persistence_javax_persistence_api_2_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_21.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_dom4j_dom4j_2_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_2_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_4_29_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_4_29_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_27_0_GA.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_2_3_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_1_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_2_spec_1_1_1_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jvnet_staxex_stax_ex_1_8.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Connectrors/ITcpConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Connectrors/ITcpConnector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Connectrors/TcpConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Connectrors/TcpConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Context/PostgresContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Context/PostgresContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/TransferModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/TransferModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Context/UserContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Context/UserContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ThreadHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ThreadHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Models/EntityModel/UserEntityModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/EntityModel/UserEntityModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Models/TransferModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/TransferModels/TransferRequestModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/ConstTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/ConstTypes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Connectrors/ITcpConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Connectrors/ITcpConnector.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Connectrors/TcpConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Connectrors/TcpConnector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Context/PostgresContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Context/PostgresContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/DatabaseController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Models/EntityModel/UnitCategoryEntityModel$CustomsCategoryEntityModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Models/EntityModel/UnitCategoryEntityModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Models/TransferModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Models/TransferModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Context/UserContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Context/UserContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ThreadHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ThreadHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Models/EntityModel/UserEntityModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Models/EntityModel/UserEntityModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Models/TransferModel.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Program.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Program.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TCPService/ITCPServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TCPService/TCPServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TCPService/ThreadController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TCPService/ThreadWorker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Utils/Constants$ActionTypes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Utils/Constants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/untitled1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Utils/ConstTypes$ActionTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Utils/ConstTypes$ActionTypes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Utils/ConstTypes$ExecutionResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Utils/ConstTypes$ExecutionResult.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Utils/ConstTypes$UserRoles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Utils/ConstTypes$UserRoles.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Utils/ConstTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Utils/ConstTypes.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,6 +91,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/Models" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -107,6 +99,11 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\decadence\Desktop\ElectronReactTS\Electron-ReactTS\Server\src\main\java\Models" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -134,7 +131,11 @@
       <workItem from="1638223604473" duration="3920000" />
       <workItem from="1638282434428" duration="9892000" />
       <workItem from="1638301258148" duration="9508000" />
-      <workItem from="1638395575880" duration="4379000" />
+      <workItem from="1638395575880" duration="5252000" />
+      <workItem from="1638622068106" duration="7259000" />
+      <workItem from="1638702649810" duration="13371000" />
+      <workItem from="1638812056861" duration="5110000" />
+      <workItem from="1638871782855" duration="13011000" />
     </task>
     <servers />
   </component>

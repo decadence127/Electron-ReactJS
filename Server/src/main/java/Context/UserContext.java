@@ -35,6 +35,50 @@ public class UserContext {
 
         return users;
     }
+    public static UserEntityModel getUserByEmail(String email) throws SQLException {
+        var connection = PostgresContext.getInstance().getConnection();
+        String sql = "SELECT * FROM %s WHERE \"Email\" = ?".formatted(sqlUserTable);
+
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, email);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        UserEntityModel user = null;
+        while (resultSet.next()) {
+            user = new UserEntityModel();
+            user.setName(resultSet.getString("Name"));
+            user.setLogin(resultSet.getString("Login"));
+            user.setPassword(resultSet.getString("Password"));
+            user.setEmail(resultSet.getString("Email"));
+            user.setBanned(resultSet.getBoolean("Banned"));
+            user.setUserRole(resultSet.getInt("Role"));
+            user.setCartId(resultSet.getInt("CartId"));
+        }
+        return user;
+    }
+
+    public static UserEntityModel getUserByLogin(String login) throws SQLException {
+        var connection = PostgresContext.getInstance().getConnection();
+        String sql = "SELECT * FROM %s WHERE \"Login\" = ?".formatted(sqlUserTable);
+
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, login);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        UserEntityModel user = null;
+        while (resultSet.next()) {
+            user = new UserEntityModel();
+            user.setName(resultSet.getString("Name"));
+            user.setLogin(resultSet.getString("Login"));
+            user.setPassword(resultSet.getString("Password"));
+            user.setEmail(resultSet.getString("Email"));
+            user.setBanned(resultSet.getBoolean("Banned"));
+            user.setUserRole(resultSet.getInt("Role"));
+            user.setCartId(resultSet.getInt("CartId"));
+        }
+        return user;
+    }
 
     public static UserEntityModel getUserById(int id) throws SQLException {
         var connection = PostgresContext.getInstance().getConnection();
@@ -69,7 +113,7 @@ public class UserContext {
         while (resultSet.next()) {
             user.setCartId(resultSet.getInt("Id"));
         }
-
+        System.out.println(user);
         String sql = "INSERT INTO %s".formatted(sqlUserTable) +
                 "(\"Email\", \"Login\", \"Password\", \"Name\", \"Banned\", " +
                 "\"Role\", \"CartId\") " +
@@ -87,4 +131,6 @@ public class UserContext {
         preparedStatement.executeUpdate();
 
     }
+
+
 }

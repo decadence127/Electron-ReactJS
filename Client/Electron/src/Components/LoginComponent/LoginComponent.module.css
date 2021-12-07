@@ -1,6 +1,6 @@
 .loginBox {
   display: flex;
-  min-height: 90%;
+  min-height: 450px;
   flex-flow: column wrap;
   align-items: center;
   justify-content: space-evenly;

@@ -1,0 +1,23 @@
+.errorBox {
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+  min-height: 50px;
+  min-width: 280px;
+  background-color: rgba(255, 0, 0, 0.3);
+}
+.successBox {
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid green;
+  min-height: 50px;
+  min-width: 280px;
+  background-color: rgba(0, 255, 0, 0.3);
+}
+body::-webkit-scrollbar {
+  display: none;
+}
