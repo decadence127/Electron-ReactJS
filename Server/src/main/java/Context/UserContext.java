@@ -36,6 +36,7 @@ public class UserContext {
 
         return users;
     }
+
     public static UserEntityModel getUserByEmail(String email) throws SQLException {
         var connection = PostgresContext.getInstance().getConnection();
         String sql = "SELECT * FROM %s WHERE \"Email\" = ?".formatted(sqlUserTable);
@@ -106,7 +107,8 @@ public class UserContext {
 
         return user;
     }
-    public static void UpdateUserById(UserEntityModel user) throws IOException, SQLException{
+
+    public static void UpdateUserById(UserEntityModel user) throws IOException, SQLException {
         var connection = PostgresContext.getInstance().getConnection();
         String sql = "UPDATE %s SET \"Name\" = ?, \"Login\" = ? , \"Password\" = ? WHERE \"Id\" = ?".formatted(sqlUserTable);
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -116,8 +118,9 @@ public class UserContext {
         preparedStatement.setInt(4, user.getId());
         preparedStatement.executeUpdate();
     }
-    public static void BanUserByEmail(String email) throws IOException, SQLException{
-        System.out.println("Email: " +email);
+
+    public static void BanUserByEmail(String email) throws IOException, SQLException {
+        System.out.println("Email: " + email);
         var connection = PostgresContext.getInstance().getConnection();
         String sql = "UPDATE %s SET \"Banned\"=? WHERE \"Email\" = ?".formatted(sqlUserTable);
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -125,6 +128,28 @@ public class UserContext {
         preparedStatement.setString(2, email);
 
         preparedStatement.executeUpdate();
+    }
+    public static void UnbanUserByEmail(String email) throws IOException, SQLException {
+        System.out.println("Email: " + email);
+        var connection = PostgresContext.getInstance().getConnection();
+        String sql = "UPDATE %s SET \"Banned\"=? WHERE \"Email\" = ?".formatted(sqlUserTable);
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setBoolean(1, false);
+        preparedStatement.setString(2, email);
+
+        preparedStatement.executeUpdate();
+    }
+
+    public static void PromoteUserByEmail(String email, int promotionValue) throws IOException, SQLException {
+        System.out.println(email);
+        System.out.println(promotionValue);
+        var connection = PostgresContext.getInstance().getConnection();
+        String sql = "UPDATE %s SET \"Role\"=? WHERE \"Email\" = ?".formatted(sqlUserTable);
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, promotionValue);
+        preparedStatement.setString(2, email);
+        preparedStatement.executeUpdate();
+
     }
 
     public static void CreateNewUser(UserEntityModel user) throws IOException, SQLException {

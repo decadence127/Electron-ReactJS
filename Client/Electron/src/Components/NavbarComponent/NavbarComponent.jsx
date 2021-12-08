@@ -11,9 +11,7 @@ import { observer } from 'mobx-react-lite';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { Link } from 'react-router-dom';
-
-
-
+import { pages, adminAuthPages, operatorAuthPages } from '../../Utils/propsArrays';
 
 
 
@@ -25,10 +23,10 @@ const NavbarComponent = observer(() => {
   const history = useHistory();
   const { user } = React.useContext(Context);
   const { colorMode } = React.useContext(Context);
-  const pages = [{ title: 'Калькулятор', route: HOME_ROUTE }, { title: 'Войти', route: LOGIN_ROUTE }];
+
   const authPages = user.userData.userRole === 3
-    ? [{ title: 'Калькулятор', route: HOME_ROUTE }, { title: 'Список всех вещей', route: UNIT_ROUTE }, { title: 'Список всех пользователей', route: USERS_ROUTE }]
-    : [{ title: 'Калькулятор', route: HOME_ROUTE }, { title: 'Список всех вещей', route: UNIT_ROUTE }]
+    ? adminAuthPages
+    : operatorAuthPages
 
 
   const logoutHandler = () => {

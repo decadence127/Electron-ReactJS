@@ -24,7 +24,9 @@ public class ControllerProvider {
         requestControllers.add(new RetrieveAllUsersController());
         requestControllers.add(new AddUnitController());
         requestControllers.add(new BanUsersController());
+        requestControllers.add(new PromotionController());
         requestControllers.add(new UpdateUserController());
+        requestControllers.add(new UnbanUsersController());
     }
 
     public TransferResponseModel Execute(TransferRequestModel clientMessage) {

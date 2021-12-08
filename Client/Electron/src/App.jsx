@@ -9,6 +9,7 @@ import { useIsMount } from './Hooks/effectIsMount.hook';
 import ConfigData from './configData.json'
 import { Context } from './renderer';
 import { CssBaseline } from '@mui/material';
+import { ruRU } from "@mui/material/locale";
 
 const App = () => {
   const { request, loading, error, clearError } = useQueryHandler();
@@ -30,7 +31,7 @@ const App = () => {
         palette: {
           mode,
         },
-      }),
+      }, ruRU),
     [mode],
   );
 

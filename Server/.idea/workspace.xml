@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f63b3cd-da5b-44fd-b771-40d4e08399e8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Components/CalculatorComponent/CalculatorComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Components/CalculatorComponent/CalculatorComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Components/EnhancedTableHead/EnhancedTableHead.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Components/EnhancedTableHead/EnhancedTableHead.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Components/NavbarComponent/NavbarComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Components/NavbarComponent/NavbarComponent.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Utils/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Utils/actionTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Utils/propsArrays.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Utils/propsArrays.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Context/UserContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Context/UserContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/ConstTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/ConstTypes.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +95,9 @@
       <workItem from="1638702649810" duration="13371000" />
       <workItem from="1638812056861" duration="5110000" />
       <workItem from="1638871782855" duration="22320000" />
-      <workItem from="1638946823707" duration="7635000" />
+      <workItem from="1638946823707" duration="9571000" />
+      <workItem from="1638966389944" duration="1203000" />
+      <workItem from="1638983183769" duration="3018000" />
     </task>
     <servers />
   </component>

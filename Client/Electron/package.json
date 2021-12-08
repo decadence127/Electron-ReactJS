@@ -97,6 +97,7 @@
     "@mui/material": "^5.1.0",
     "axios": "^0.24.0",
     "electron-squirrel-startup": "^1.0.0",
+    "material-table": "^1.69.3",
     "material-ui-search-bar": "^1.0.0",
     "mobx": "^6.3.8",
     "mobx-react-lite": "^3.2.2",

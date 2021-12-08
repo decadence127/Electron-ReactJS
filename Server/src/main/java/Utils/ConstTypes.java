@@ -14,6 +14,9 @@ public class ConstTypes {
         public static final int GET_UNITS = 9;
         public static final int EDIT_USER = 10;
         public static final int BAN_USERS = 11;
+        public static final int DELETE_ITEMS = 12;
+        public static final int PROMOTION_ACTION = 13;
+        public static final int UNBAN_USERS = 14;
 
         private ActionTypes(){};
     }

@@ -11,6 +11,10 @@ import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import DeleteIcon from '@mui/icons-material/Delete';
+import AutoFixNormalIcon from '@mui/icons-material/AutoFixNormal';
+import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
+import NewReleasesIcon from '@mui/icons-material/NewReleases';
+import AutoFixOffIcon from '@mui/icons-material/AutoFixOff';
 import BlockIcon from '@mui/icons-material/Block';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
@@ -66,7 +70,7 @@ export const EnhancedTableHead = (props) => {
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
             inputProps={{
-              'aria-label': 'select all desserts',
+              'aria-label': 'select all users',
             }}
           />
         </TableCell>
@@ -117,17 +121,59 @@ export const EnhancedTableHead = (props) => {
 }
 
 
-export const EnhancedTableToolbar = (props) => {
+export const EnhancedTableToolbar = ({ reload, ...props }) => {
   const { numSelected } = props;
   const { request } = useQueryHandler();
+  const [error, setError] = React.useState(null);
+  const banClickHandler = async (selectedArray) => {
 
-  const deleteClickHanlder = async (selectedArray) => {
-    console.log(selectedArray);
-    const response = props.type === "users"
-      ? await request(ConfigData.queryLink, new TransferModel({ emails: selectedArray }, actionTypes.BAN_USERS))
-      : await request(ConfigData.queryLink, new TransferModel({ ids: selectedArray }, actionTypes.DELETE_ITEMS));
-    console.log(response);
+    try {
+      props.type === "users"
+        ? await request(ConfigData.queryLink, new TransferModel({ emails: selectedArray }, actionTypes.BAN_USERS))
+        : await request(ConfigData.queryLink, new TransferModel({ ids: selectedArray }, actionTypes.DELETE_ITEMS));
+      reload()
+    } catch (e) {
+      setError(e);
+    }
   }
+  const unbanClickHandler = async (selectedArray) => {
+    try {
+      await request(ConfigData.queryLink, new TransferModel({ emails: selectedArray }, actionTypes.UNBAN_USERS))
+      reload(prev => !prev)
+    } catch (e) {
+      setError(e)
+    }
+
+  }
+  const promoteToAdministatorHanlder = async (selectedArray) => {
+    try {
+      const objArray = selectedArray.map((item) => ({ userMail: item, promotionValue: 3 }))
+      await request(ConfigData.queryLink, new TransferModel({ users: objArray }, actionTypes.PROMOTION_ACTION))
+      reload(prev => !prev)
+    } catch (e) {
+      setError(e)
+    }
+  }
+  const promoteToOperatorHandler = async (selectedArray) => {
+    try {
+      const objArray = selectedArray.map((item) => ({ userMail: item, promotionValue: 2 }))
+      await request(ConfigData.queryLink, new TransferModel({ users: objArray }, actionTypes.PROMOTION_ACTION))
+      reload(prev => !prev)
+    } catch (e) {
+      setError(e)
+    }
+  }
+  const demoteToUserHandler = async (selectedArray) => {
+    try {
+      const objArray = selectedArray.map((item) => ({ userMail: item, promotionValue: 1 }))
+      await request(ConfigData.queryLink, new TransferModel({ users: objArray }, actionTypes.PROMOTION_ACTION))
+      reload(prev => !prev)
+    } catch (e) {
+      setError(e)
+    }
+
+  }
+
   return (
     <Toolbar
       sx={{
@@ -160,11 +206,33 @@ export const EnhancedTableToolbar = (props) => {
       )}
 
       {numSelected > 0 ? (
-        <Tooltip title="Block">
-          <IconButton onClick={async e => { await deleteClickHanlder(props.selectedArray) }}>
-            <BlockIcon />
-          </IconButton>
-        </Tooltip>
+        <>
+          <Tooltip title="Заблокировать">
+            <IconButton onClick={async e => { await banClickHandler(props.selectedArray) }}>
+              <BlockIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Разблокировать">
+            <IconButton onClick={async e => { await unbanClickHandler(props.selectedArray) }}>
+              <NewReleasesIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Выдать права администратора">
+            <IconButton onClick={async e => { await promoteToAdministatorHanlder(props.selectedArray) }}>
+              <AutoFixHighIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Выдать права оператора">
+            <IconButton onClick={async e => { await promoteToOperatorHandler(props.selectedArray) }}>
+              <AutoFixNormalIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Выдать права пользователя">
+            <IconButton onClick={async e => { await demoteToUserHandler(props.selectedArray) }}>
+              <AutoFixOffIcon />
+            </IconButton>
+          </Tooltip>
+        </>
       ) : (
         <Tooltip title="Filter list">
           <IconButton>

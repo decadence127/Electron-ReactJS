@@ -11,6 +11,8 @@ export const actionTypes = {
   EDIT_USER: 10,
   BAN_USERS: 11,
   DELETE_ITEMS: 12,
+  PROMOTION_ACTION: 13,
+  UNBAN_USERS: 14,
   CLOSE_CONNECTION: -1,
 };
 export const executionResults = {

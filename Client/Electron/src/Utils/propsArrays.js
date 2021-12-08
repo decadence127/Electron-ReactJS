@@ -1,3 +1,11 @@
+import {
+  HOME_ROUTE,
+  LOGIN_ROUTE,
+  UNIT_ROUTE,
+  USERS_ROUTE,
+  USER_ROUTE,
+} from "./pageNames";
+
 export const usersHeadCells = [
   {
     id: "name",
@@ -49,4 +57,18 @@ export const itemsHeadCells = [
     disablePadding: false,
     label: "Стоимость с пошлниой",
   },
+];
+
+export const pages = [
+  { title: "Калькулятор", route: HOME_ROUTE },
+  { title: "Войти", route: LOGIN_ROUTE },
+];
+export const adminAuthPages = [
+  { title: "Калькулятор", route: HOME_ROUTE },
+  { title: "Список всех вещей", route: UNIT_ROUTE },
+  { title: "Список всех пользователей", route: USERS_ROUTE },
+];
+export const operatorAuthPages = [
+  { title: "Калькулятор", route: HOME_ROUTE },
+  { title: "Список всех вещей", route: UNIT_ROUTE },
 ];
