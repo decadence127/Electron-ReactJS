@@ -10,6 +10,7 @@ export const actionTypes = {
   GET_ALL_UNITS: 9,
   EDIT_USER: 10,
   BAN_USERS: 11,
+  DELETE_ITEMS: 12,
   CLOSE_CONNECTION: -1,
 };
 export const executionResults = {

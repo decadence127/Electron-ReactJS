@@ -24,7 +24,7 @@ const UserCalculatorComponent = ({ clickAddHandler, unit, setUnit, tax, success,
         }
       }}>
         <Typography variant="h5">Таможенный калькулятор</Typography>
-        {tax.get() && <Typography>Цена товара с пошлиной: {tax.get()} € </Typography>}
+        {tax.get() > 0 && <Typography>Цена товара с пошлиной: {tax.get()} € </Typography>}
         <Typography fontStyle="italic" color="CaptionText" variant="caption">Курс ЦБ взят: 1€ ≈ 2.87 Br</Typography>
         {error && <Box className={sharedClasses.errorBox}>{error}</Box>}
         {success && <Box className={sharedClasses.successBox}>{success}</Box>}

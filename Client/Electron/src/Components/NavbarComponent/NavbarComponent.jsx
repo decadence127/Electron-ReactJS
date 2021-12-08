@@ -34,6 +34,8 @@ const NavbarComponent = observer(() => {
   const logoutHandler = () => {
     user.setUserData({});
     user.setIsAuth(false);
+    setTabValue(1);
+    history.push(LOGIN_ROUTE);
   }
   const handleChange = (event, newValue) => {
     setTabValue(newValue);

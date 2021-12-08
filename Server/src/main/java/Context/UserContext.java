@@ -117,6 +117,7 @@ public class UserContext {
         preparedStatement.executeUpdate();
     }
     public static void BanUserByEmail(String email) throws IOException, SQLException{
+        System.out.println("Email: " +email);
         var connection = PostgresContext.getInstance().getConnection();
         String sql = "UPDATE %s SET \"Banned\"=? WHERE \"Email\" = ?".formatted(sqlUserTable);
         PreparedStatement preparedStatement = connection.prepareStatement(sql);

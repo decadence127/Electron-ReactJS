@@ -20,7 +20,7 @@ const CalculatorComponent = ({ setTax, tax, error, clickHandler, calcData, setCa
         }
       }}>
         <Typography variant="h5">Таможенный калькулятор</Typography>
-        {tax.get() && <Typography>Цена товара с пошлиной: {tax.get()} € </Typography>}
+        {tax.get() > 0 && <Typography>Цена товара с пошлиной: {tax.get()} € </Typography>}
         <Typography fontStyle="italic" color="CaptionText" variant="caption">Курс ЦБ взят: 1€ ≈ 2.87 Br</Typography>
       </Box>
       <Box display="flex" flexDirection="column">

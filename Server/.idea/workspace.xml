@@ -6,19 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9f63b3cd-da5b-44fd-b771-40d4e08399e8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Components/CalculatorComponent/CalculatorComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Components/CalculatorComponent/CalculatorComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Pages/HomePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Pages/HomePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Pages/UsersPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Pages/UsersPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Utils/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Utils/actionTypes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Context/UserContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Context/UserContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/EntityModel/UserEntityModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/EntityModel/UserEntityModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/ConstTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/ConstTypes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerProvider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Utils/ConstTypes$ActionTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Utils/ConstTypes$ActionTypes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Utils/ConstTypes$ExecutionResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Utils/ConstTypes$ExecutionResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Utils/ConstTypes$UserRoles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Utils/ConstTypes$UserRoles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Utils/ConstTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Utils/ConstTypes.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +91,7 @@
       <workItem from="1638702649810" duration="13371000" />
       <workItem from="1638812056861" duration="5110000" />
       <workItem from="1638871782855" duration="22320000" />
-      <workItem from="1638946823707" duration="7043000" />
+      <workItem from="1638946823707" duration="7635000" />
     </task>
     <servers />
   </component>

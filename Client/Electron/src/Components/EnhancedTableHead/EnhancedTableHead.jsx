@@ -11,10 +11,14 @@ import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import DeleteIcon from '@mui/icons-material/Delete';
+import BlockIcon from '@mui/icons-material/Block';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import { itemsHeadCells, usersHeadCells } from '../../Utils/propsArrays';
-
+import { useQueryHandler } from '../../Hooks/queryHandler.hook';
+import { TransferModel } from '../../../transferModel/transferModel';
+import { actionTypes } from '../../Utils/actionTypes';
+import ConfigData from '../../configData.json'
 
 export function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -115,9 +119,14 @@ export const EnhancedTableHead = (props) => {
 
 export const EnhancedTableToolbar = (props) => {
   const { numSelected } = props;
+  const { request } = useQueryHandler();
 
-  const deleteClickHanlder = (selectedArray) => {
+  const deleteClickHanlder = async (selectedArray) => {
     console.log(selectedArray);
+    const response = props.type === "users"
+      ? await request(ConfigData.queryLink, new TransferModel({ emails: selectedArray }, actionTypes.BAN_USERS))
+      : await request(ConfigData.queryLink, new TransferModel({ ids: selectedArray }, actionTypes.DELETE_ITEMS));
+    console.log(response);
   }
   return (
     <Toolbar
@@ -151,9 +160,9 @@ export const EnhancedTableToolbar = (props) => {
       )}
 
       {numSelected > 0 ? (
-        <Tooltip title="Delete">
-          <IconButton onClick={e => deleteClickHanlder(props.selectedArray)}>
-            <DeleteIcon />
+        <Tooltip title="Block">
+          <IconButton onClick={async e => { await deleteClickHanlder(props.selectedArray) }}>
+            <BlockIcon />
           </IconButton>
         </Tooltip>
       ) : (
