@@ -10,7 +10,11 @@ public class ConstTypes {
         public static final int CALC_AUTO_ACTION = 5;
         public static final int GET_USERS_ACTION = 6;
         public static final int ADD_UNIT = 7;
-        public static final int GET_UNIT_LIST = 8;
+        public static final int GET_USER_UNITS = 8;
+        public static final int GET_UNITS = 9;
+        public static final int EDIT_USER = 10;
+        public static final int BAN_USERS = 11;
+
         private ActionTypes(){};
     }
    public static class UserRoles{

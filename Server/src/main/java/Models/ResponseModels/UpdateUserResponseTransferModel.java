@@ -1,59 +1,59 @@
-package Models.EntityModel;
+package Models.ResponseModels;
 
-public class UserEntityModel {
+public class UpdateUserResponseTransferModel {
     int Id;
-    String email;
-    String login;
-    String password;
-    String Name;
+    String userEmail;
+    String userLogin;
+    String userPassword;
+    String userName;
     Boolean isBanned;
     int userRole;
     int cartId;
-    public UserEntityModel(){};
+    public UpdateUserResponseTransferModel(){};
 
     public void setId(int id) {
         Id = id;
     }
 
-    public UserEntityModel(String email, String login, String password, String name, Boolean isBanned, int userRole) {
-        this.email = email;
-        this.login = login;
-        this.password = password;
-        Name = name;
+    public UpdateUserResponseTransferModel(String email, String login, String password, String name, Boolean isBanned, int userRole) {
+        this.userEmail = email;
+        this.userLogin = login;
+        this.userPassword = password;
+        userName = name;
         this.isBanned = isBanned;
         this.userRole = userRole;
     }
 
     public String getEmail() {
-        return email;
+        return userEmail;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.userEmail = email;
     }
 
     public String getLogin() {
-        return login;
+        return userLogin;
     }
 
     public void setLogin(String login) {
-        this.login = login;
+        this.userLogin = login;
     }
 
     public String getPassword() {
-        return password;
+        return userPassword;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.userPassword = password;
     }
 
     public String getName() {
-        return Name;
+        return userName;
     }
 
     public void setName(String name) {
-        Name = name;
+        userName = name;
     }
 
     public int getId() {
@@ -72,10 +72,10 @@ public class UserEntityModel {
     @Override
     public String toString() {
         return "UserEntityModel{" +
-                "email='" + email + '\'' +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", Name='" + Name + '\'' +
+                "email='" + userEmail + '\'' +
+                ", login='" + userLogin + '\'' +
+                ", password='" + userPassword + '\'' +
+                ", Name='" + userName + '\'' +
                 ", isBanned=" + isBanned +
                 ", userRole=" + userRole +
                 ", cartId=" + cartId +

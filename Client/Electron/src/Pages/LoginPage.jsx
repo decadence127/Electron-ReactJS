@@ -30,6 +30,7 @@ const LoginPage = observer(() => {
 
         if (response.executionCode === 1) {
           setError(JSON.parse(response.executionResult).errorMessage)
+          return;
         } else {
           userModel = { ...JSON.parse(response.executionResult).responseModel, isAuth: true };
 

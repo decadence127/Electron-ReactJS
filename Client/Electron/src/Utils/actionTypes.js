@@ -8,6 +8,8 @@ export const actionTypes = {
   ADD_UNIT: 7,
   GET_UNITS: 8,
   GET_ALL_UNITS: 9,
+  EDIT_USER: 10,
+  BAN_USERS: 11,
   CLOSE_CONNECTION: -1,
 };
 export const executionResults = {

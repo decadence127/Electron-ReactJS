@@ -22,6 +22,7 @@ public class UserContext {
 
         while (resultSet.next()) {
             UserEntityModel user = new UserEntityModel();
+            user.setId(resultSet.getInt("Id"));
             user.setName(resultSet.getString("Name"));
             user.setLogin(resultSet.getString("Login"));
             user.setPassword(resultSet.getString("Password"));
@@ -47,6 +48,7 @@ public class UserContext {
         UserEntityModel user = null;
         while (resultSet.next()) {
             user = new UserEntityModel();
+            user.setId(resultSet.getInt("Id"));
             user.setName(resultSet.getString("Name"));
             user.setLogin(resultSet.getString("Login"));
             user.setPassword(resultSet.getString("Password"));
@@ -69,6 +71,7 @@ public class UserContext {
         UserEntityModel user = null;
         while (resultSet.next()) {
             user = new UserEntityModel();
+            user.setId(resultSet.getInt("Id"));
             user.setName(resultSet.getString("Name"));
             user.setLogin(resultSet.getString("Login"));
             user.setPassword(resultSet.getString("Password"));
@@ -88,8 +91,10 @@ public class UserContext {
         preparedStatement.setInt(1, id);
 
         ResultSet resultSet = preparedStatement.executeQuery();
-        UserEntityModel user = new UserEntityModel();
+        UserEntityModel user = null;
         while (resultSet.next()) {
+            user = new UserEntityModel();
+            user.setId(resultSet.getInt("Id"));
             user.setName(resultSet.getString("Name"));
             user.setLogin(resultSet.getString("Login"));
             user.setPassword(resultSet.getString("Password"));
@@ -100,6 +105,25 @@ public class UserContext {
         }
 
         return user;
+    }
+    public static void UpdateUserById(UserEntityModel user) throws IOException, SQLException{
+        var connection = PostgresContext.getInstance().getConnection();
+        String sql = "UPDATE %s SET \"Name\" = ?, \"Login\" = ? , \"Password\" = ? WHERE \"Id\" = ?".formatted(sqlUserTable);
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, user.getName());
+        preparedStatement.setString(2, user.getLogin());
+        preparedStatement.setString(3, user.getPassword());
+        preparedStatement.setInt(4, user.getId());
+        preparedStatement.executeUpdate();
+    }
+    public static void BanUserByEmail(String email) throws IOException, SQLException{
+        var connection = PostgresContext.getInstance().getConnection();
+        String sql = "UPDATE %s SET \"Banned\"=? WHERE \"Email\" = ?".formatted(sqlUserTable);
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setBoolean(1, true);
+        preparedStatement.setString(2, email);
+
+        preparedStatement.executeUpdate();
     }
 
     public static void CreateNewUser(UserEntityModel user) throws IOException, SQLException {

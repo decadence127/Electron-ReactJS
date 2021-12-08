@@ -1,18 +1,20 @@
 import { TextField, Select, Box, MenuItem, Button, Typography, FormControl, InputLabel } from '@mui/material';
 import React from 'react';
 import PaperContainer from '../PaperContainer/PaperContainer';
-import ConfigData from "../../configData.json";
 import { useQueryHandler } from '../../Hooks/queryHandler.hook';
-import { actionTypes } from '../../Utils/actionTypes';
-import { TransferModel } from '../../../transferModel/transferModel';
-
-const UserCalculatorComponent = ({ unit, setUnit, setTax, tax, setError, error, clickHandler, calcData, setCalcData, calcType, setCalcType }) => {
+import sharedClasses from '../../sharedStyles.module.css'
+const UserCalculatorComponent = ({ clickAddHandler, unit, setUnit, tax, success, error, clickHandler, calcData, setCalcData, calcType, setCalcType }) => {
   const { loading, request } = useQueryHandler();
 
   const handleChange = (e) => {
     setCalcType(e.target.value);
     setCalcData({});
-    setTax(null);
+    tax.set(null);
+
+  }
+  const handleClick = async e => {
+    await clickHandler();
+    await clickAddHandler();
   }
   return (
     <PaperContainer widthProp={800} heightProp={450} displayProp="flex" elevation={4} paddingProp={4} justifyContent="flex-start" alignItems="center" flexFlow="row wrap">
@@ -22,8 +24,10 @@ const UserCalculatorComponent = ({ unit, setUnit, setTax, tax, setError, error, 
         }
       }}>
         <Typography variant="h5">Таможенный калькулятор</Typography>
-        {tax && <Typography>Цена товара с пошлиной: {tax} € </Typography>}
+        {tax.get() && <Typography>Цена товара с пошлиной: {tax.get()} € </Typography>}
         <Typography fontStyle="italic" color="CaptionText" variant="caption">Курс ЦБ взят: 1€ ≈ 2.87 Br</Typography>
+        {error && <Box className={sharedClasses.errorBox}>{error}</Box>}
+        {success && <Box className={sharedClasses.successBox}>{success}</Box>}
       </Box>
       <Box display="flex" flexDirection="column">
         <Box id="main-calc-field" ml={4} display="flex" sx={
@@ -64,7 +68,7 @@ const UserCalculatorComponent = ({ unit, setUnit, setTax, tax, setError, error, 
           justifyContent: 'flex-end',
           padding: 2
         }}>
-          <Button sx={{ marginLeft: 3 }} variant="contained" color="info" onClick={clickHandler}>Добавить</Button>
+          <Button sx={{ marginLeft: 3 }} variant="contained" color="info" onClick={handleClick}>Добавить</Button>
         </Box>
       </Box>
     </PaperContainer>
