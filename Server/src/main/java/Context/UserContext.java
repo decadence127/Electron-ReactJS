@@ -107,6 +107,29 @@ public class UserContext {
 
         return user;
     }
+    public static UserEntityModel getUserByCartId(int cartId) throws SQLException {
+        var connection = PostgresContext.getInstance().getConnection();
+        String sql = "SELECT * FROM %s WHERE \"CartId\" = ?".formatted(sqlUserTable);
+
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, cartId);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        UserEntityModel user = null;
+        while (resultSet.next()) {
+            user = new UserEntityModel();
+            user.setId(resultSet.getInt("Id"));
+            user.setName(resultSet.getString("Name"));
+            user.setLogin(resultSet.getString("Login"));
+            user.setPassword(resultSet.getString("Password"));
+            user.setEmail(resultSet.getString("Email"));
+            user.setBanned(resultSet.getBoolean("Banned"));
+            user.setUserRole(resultSet.getInt("Role"));
+            user.setCartId(resultSet.getInt("CartId"));
+        }
+
+        return user;
+    }
 
     public static void UpdateUserById(UserEntityModel user) throws IOException, SQLException {
         var connection = PostgresContext.getInstance().getConnection();

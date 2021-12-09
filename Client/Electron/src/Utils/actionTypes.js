@@ -13,6 +13,7 @@ export const actionTypes = {
   DELETE_ITEMS: 12,
   PROMOTION_ACTION: 13,
   UNBAN_USERS: 14,
+  RETRIVEVE_ALL_CATEGORIES: 15,
   CLOSE_CONNECTION: -1,
 };
 export const executionResults = {

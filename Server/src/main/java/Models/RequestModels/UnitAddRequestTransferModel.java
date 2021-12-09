@@ -1,10 +1,21 @@
 package Models.RequestModels;
 
+import java.util.ArrayList;
+
 public class UnitAddRequestTransferModel {
     String unitTitle;
     String unitDesc;
+    ArrayList<Number> categoryId;
     float taxValue;
     int cartId;
+
+    public ArrayList<Number> getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(ArrayList<Number> categoryId) {
+        this.categoryId = categoryId;
+    }
 
     public int getCartId() {
         return cartId;

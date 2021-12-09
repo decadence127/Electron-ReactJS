@@ -3,7 +3,7 @@ import { useQueryHandler } from '../Hooks/queryHandler.hook';
 import ConfigData from '../configData.json'
 import { TransferModel } from '../../transferModel/transferModel';
 import { actionTypes } from '../Utils/actionTypes';
-
+import LoadingComponent from '../Components/LoadingComponent/LoadingComponent';
 import { Box } from '@mui/system';
 import UsersList from '../Components/UsersList/UsersList';
 
@@ -27,7 +27,7 @@ const UsersPage = () => {
 
   return (
     <Box>
-      <UsersList users={users} setReload={setReload} />
+      {loading ? <LoadingComponent loading={loading} /> : <UsersList users={users} setReload={setReload} />}
     </Box>
   );
 };

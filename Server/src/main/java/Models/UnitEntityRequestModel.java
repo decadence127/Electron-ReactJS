@@ -1,5 +1,7 @@
 package Models;
 
+import java.util.ArrayList;
+
 public class UnitEntityRequestModel {
     float taxValue;
     String unitTitle;
@@ -7,6 +9,15 @@ public class UnitEntityRequestModel {
     String arrivalDate;
     int unitDescId;
     int cartId;
+    ArrayList<Integer> categories;
+
+    public ArrayList<Integer> getCategories() {
+        return categories;
+    }
+
+    public void setCategoryId(ArrayList<Integer> categories) {
+        this.categories = categories;
+    }
 
     public String getArrivalDate() {
         return arrivalDate;

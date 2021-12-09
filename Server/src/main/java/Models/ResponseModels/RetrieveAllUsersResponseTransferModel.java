@@ -15,7 +15,7 @@ public class RetrieveAllUsersResponseTransferModel {
         return userList;
     }
 
-    public void setWorkersList(ArrayList<UserEntityModel> userList) {
+    public void setUsersList(ArrayList<UserEntityModel> userList) {
         this.userList = userList;
     }
 

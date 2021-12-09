@@ -83,7 +83,10 @@ const UnitsPage = () => {
     setDense(event.target.checked);
   };
   const isSelected = (name) => selected.indexOf(name) !== -1;
-
+  const clickHandler = async () => {
+    const response = await request(ConfigData.queryLink, { ...new TransferModel({}, actionTypes.RETRIVEVE_ALL_CATEGORIES) });
+    console.log(response);
+  }
   useEffect(() => {
     (async () => {
       const response = await request(ConfigData.queryLink, { ...new TransferModel({}, actionTypes.GET_ALL_UNITS) });
@@ -94,7 +97,7 @@ const UnitsPage = () => {
 
   return (
     <div>
-
+      <button onClick={clickHandler}>asdasd</button>
     </div>
   );
 };

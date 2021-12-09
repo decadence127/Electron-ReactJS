@@ -1,5 +1,7 @@
 package Controllers.ControllerImplementation;
 
+import Context.CategoryContext;
+import Context.CategoryUnitRelationContext;
 import Context.UnitContext;
 import Context.UserContext;
 import Controllers.BaseController.BaseRequestController;
@@ -30,7 +32,6 @@ public class AddUnitController extends BaseRequestController<UnitAddRequestTrans
         unit.setTaxValue(unitAddRequestTransferModel.getTaxValue());
         unit.setUnitTitle(unitAddRequestTransferModel.getUnitTitle());
         unit.setCartId(unitAddRequestTransferModel.getCartId());
-        UnitContext.CreateNewUnit(unit);
 
         return new UnitAddResponseTransferModel();
     }

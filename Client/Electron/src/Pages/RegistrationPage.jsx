@@ -25,8 +25,10 @@ const RegistrationPage = () => {
   }
 
   return (
-    <RegistrationComponent loading={loading} success={success} clickHandler={clickHandler} setError={setError} error={error} credentials={credentials} setCredentials={setCredentials} />
-    // <RegistrationComponent loading={loading} success={success} click={clickHandler} setError={setError} error={error} setUserEmail={setUserEmail} setUserLogin={setUserLogin} setUserPassword={setUserPassword} setUserName={setUserName} />
+    <>
+      {loading && <LoadingComponent loading={loading} />}
+      <RegistrationComponent success={success} clickHandler={clickHandler} setError={setError} error={error} credentials={credentials} setCredentials={setCredentials} />
+    </>
   );
 };
 

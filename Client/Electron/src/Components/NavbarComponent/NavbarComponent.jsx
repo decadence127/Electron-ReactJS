@@ -10,7 +10,7 @@ import { Context } from '../../renderer';
 import { observer } from 'mobx-react-lite';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { pages, adminAuthPages, operatorAuthPages } from '../../Utils/propsArrays';
 
 
@@ -115,12 +115,12 @@ const NavbarComponent = observer(() => {
               }}
             >
               {user.isAuth ? authPages.map((page) => (
-                <MenuItem MenuItem value={page.route} key={page.route} onClick={handleComponentChange} >
-                  <Typography value={page.route} textAlign="center">{page.title}</Typography>
+                <MenuItem value={page.route} key={page.route} onClick={handleComponentChange} >
+                  <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to={page.route}>{page.title}</NavLink>
                 </MenuItem>
               )) : (pages.map((page) => (
-                <MenuItem MenuItem value={page.route} key={page.route} onClick={handleComponentChange} >
-                  <Typography value={page.route} textAlign="center">{page.title}</Typography>
+                <MenuItem value={page.route} key={page.route} onClick={handleComponentChange} >
+                  <NavLink style={{ textDecoration: 'none', color: 'inherit' }} to={page.route}>{page.title}</NavLink>
                 </MenuItem>)
               ))}
             </Menu>

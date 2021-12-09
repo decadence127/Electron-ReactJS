@@ -4,6 +4,7 @@ import {
   UNIT_ROUTE,
   USERS_ROUTE,
   USER_ROUTE,
+  UNITS_ROUTE,
 } from "./pageNames";
 
 export const usersHeadCells = [
@@ -65,10 +66,10 @@ export const pages = [
 ];
 export const adminAuthPages = [
   { title: "Калькулятор", route: HOME_ROUTE },
-  { title: "Список всех вещей", route: UNIT_ROUTE },
+  { title: "Список всех вещей", route: UNITS_ROUTE },
   { title: "Список всех пользователей", route: USERS_ROUTE },
 ];
 export const operatorAuthPages = [
   { title: "Калькулятор", route: HOME_ROUTE },
-  { title: "Список всех вещей", route: UNIT_ROUTE },
+  { title: "Список всех вещей", route: UNITS_ROUTE },
 ];

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StepLabel, Stepper, Step, LinearProgress } from '@mui/material';
+import { StepLabel, Stepper, Step, LinearProgress, Alert } from '@mui/material';
 import { Box, TextField, Typography, Button } from "@mui/material"
 import PaperContainer from '../../Components/PaperContainer/PaperContainer';
 import classes from './RegistrationComponent.module.css';
@@ -49,7 +49,6 @@ const RegistrationComponent = ({ loading, success, setError, error, clickHandler
 
   return (
     <>
-      {loading && <LinearProgress />}
       {activeStep === 0 && (<Box className={classes.outerRegBox}>
         <Stepper activeStep={activeStep} alternativeLabel >{steps.map((label, index) => {
           return (<Step key={index}><StepLabel>{label}</StepLabel></Step>)
@@ -60,7 +59,7 @@ const RegistrationComponent = ({ loading, success, setError, error, clickHandler
             <Typography fontWeight="600" textAlign="center" variant="h5" >Регистрация</Typography>
             <TextField required onChange={e => setCredentials({ ...credentials, [e.target.name]: e.target.value })} name="email" label="Email" variant="outlined" className={classes.textInput} placeholder="Email" />
             <TextField type="password" required onChange={e => setCredentials({ ...credentials, [e.target.name]: e.target.value })} name="password" label="Пароль" variant="outlined" className={classes.textInput} placeholder="Пароль" />
-            {error && <Box className={sharedClasses.errorBox}>{error}</Box>}
+            {error && <Alert severity="error">{error}</Alert>}
             <Box minWidth="250px" display="flex" justifyContent="space-between">
               <Button variant="contained" color="primary" onClick={returnToLogin}>Вернуться</Button>
               <Button variant="contained" color="info" onClick={handleNext}>Далее</Button>
@@ -80,8 +79,8 @@ const RegistrationComponent = ({ loading, success, setError, error, clickHandler
             <Typography fontWeight="600" textAlign="center" variant="h5">Регистрация</Typography>
             <TextField onChange={e => setCredentials({ ...credentials, [e.target.name]: e.target.value })} name="login" label="Логин" variant="outlined" className={classes.textInput} placeholder="Логин" />
             <TextField required onChange={e => setCredentials({ ...credentials, [e.target.name]: e.target.value })} name="name" label="Имя" variant="outlined" className={classes.textInput} placeholder="Имя" />
-            {error && <Box className={sharedClasses.errorBox}>{error}</Box>}
-            {success && <Box className={sharedClasses.successBox}>{success}</Box>}
+            {error && <Alert severity="error">{error}</Alert>}
+            {success && <Alert severity="success">{success}</Alert>}
             <Box id="boxContainer" minWidth="400px" display="flex" flexDirection="row" justifyContent="space-evenly">
               <Button variant="contained" color="info" onClick={handleBack}>Вернуться</Button>
               <Button variant="contained" color="success" onClick={handleClick}>Завершить</Button>

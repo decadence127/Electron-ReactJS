@@ -1,20 +1,6 @@
-import React, { useState } from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableRow from '@mui/material/TableRow';
-import TableFooter from '@mui/material/TableFooter';
-import TablePagination from '@mui/material/TablePagination';
-import SearchBar from 'material-ui-search-bar'
-import Paper from '@mui/material/Paper';
-import TablePaginator from '../TablePaginator/TablePaginator';
-import { EnhancedTableHead, EnhancedTableToolbar, getComparator, stableSort } from '../EnhancedTableHead/EnhancedTableHead';
-import { Checkbox } from '@mui/material';
+import React from 'react';
 
-
-const UsersList = ({ users, setReload }) => {
-
+const UnitsList = ({ units, setReload }) => {
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('name');
   const [page, setPage] = React.useState(0);
@@ -26,7 +12,7 @@ const UsersList = ({ users, setReload }) => {
 
 
   const requestSearch = (searchedVal) => {
-    const filteredRows = users.filter((row) => {
+    const filteredRows = units.filter((row) => {
       return row.Name.toLowerCase().includes(searchedVal.toLowerCase());
     });
     setUsers(filteredRows);
@@ -40,7 +26,7 @@ const UsersList = ({ users, setReload }) => {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = users.map((n) => n.Name);
+      const newSelecteds = units.map((n) => n.Name);
       setSelected(newSelecteds);
       return;
     }
@@ -93,35 +79,35 @@ const UsersList = ({ users, setReload }) => {
     <TableContainer component={Paper} sx={{ margin: 4 }} size={dense ? 'small' : 'medium'}>
       <EnhancedTableToolbar
         numSelected={selected.length}
-        type="users"
+        type="items"
         reload={setReload}
-        name="Пользователи"
+        name="Все вещи"
         selectedArray={selected} />
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <EnhancedTableHead
-          type="users"
+          type="items"
           numSelected={selected.length}
           reload={setReload}
           order={order}
           orderBy={orderBy}
           onSelectAllClick={handleSelectAllClick}
           onRequestSort={handleRequestSort}
-          rowCount={!users ? 0 : users.length}
+          rowCount={!units ? 0 : units.length}
         />
         <TableBody>
-          {users && (rowsPerPage > 0
-            ? stableSort(users, getComparator(order, orderBy)).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : users
-          ).map((user, index) => {
-            const isItemSelected = isSelected(user.email);
+          {units && (rowsPerPage > 0
+            ? stableSort(units, getComparator(order, orderBy)).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            : units
+          ).map((unit, index) => {
+            const isItemSelected = isSelected(unit.email);
             const labelId = `enhanced-table-checkbox-${index}`;
 
             return (<TableRow
-              onClick={(event) => handleClick(event, user.email)}
+              onClick={(event) => handleClick(event, units.id)}
               tabIndex={-1}
               selected={isItemSelected}
               aria-checked={isItemSelected}
-              key={user.email}
+              key={units.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell padding="checkbox">
@@ -134,13 +120,13 @@ const UsersList = ({ users, setReload }) => {
                 />
               </TableCell>
               <TableCell padding="none" component="th" id={labelId} scope="row">
-                {user.Name}
+                {unit.Name}
               </TableCell>
-              <TableCell align="right">{user.login ? user.login : "Отсутствует"}</TableCell>
-              <TableCell align="right">{user.email}</TableCell>
-              <TableCell align="right">{user.userRole === 3 ? "Администратор" : user.userRole === 2 ? "Оператор" : "Пользователь"}</TableCell>
-              <TableCell align="right">{user.cartId}</TableCell>
-              <TableCell align="right">{user.isBanned ? "Да" : "Нет"}</TableCell>
+              <TableCell align="right">{unit.unitTitle}</TableCell>
+              <TableCell align="right">{unit.email}</TableCell>
+              <TableCell align="right">{unit.userRole === 3 ? "Администратор" : unit.userRole === 2 ? "Оператор" : "Пользователь"}</TableCell>
+              <TableCell align="right">{unit.cartId}</TableCell>
+              <TableCell align="right">{unit.isBanned ? "Да" : "Нет"}</TableCell>
             </TableRow>)
           })}
           {emptyRows > 0 && (
@@ -159,7 +145,7 @@ const UsersList = ({ users, setReload }) => {
 
               rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
               colSpan={3}
-              count={!users ? 0 : users.length}
+              count={!units ? 0 : units.length}
               rowsPerPage={rowsPerPage}
               page={page}
               SelectProps={{
@@ -180,4 +166,4 @@ const UsersList = ({ users, setReload }) => {
   );
 };
 
-export default UsersList;
+export default UnitsList;

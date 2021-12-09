@@ -1,4 +1,4 @@
 package Models.RequestModels;
 
-public class RetrieveAllCategoriesTransferModel {
+public class RetrieveAllCategoriesRequestTransferModel {
 }

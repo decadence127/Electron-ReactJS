@@ -1,10 +1,37 @@
 package Models;
 
 public class UnitEntityResponseModel {
+    int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     float taxValue;
     String unitTitle;
     String unitDesc;
     String arrivalDate;
+    int cartId;
+
+    public String getArrivalDate() {
+        return arrivalDate;
+    }
+
+    public void setArrivalDate(String arrivalDate) {
+        this.arrivalDate = arrivalDate;
+    }
+
+    public int getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(int cartId) {
+        this.cartId = cartId;
+    }
 
     public String getUnitTitle() {
         return unitTitle;

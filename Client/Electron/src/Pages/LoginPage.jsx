@@ -9,6 +9,7 @@ import { observer } from 'mobx-react-lite'
 import { HOME_ROUTE } from '../Utils/pageNames';
 import { useHistory } from 'react-router';
 import ConfigData from "../configData.json"
+import LoadingComponent from '../Components/LoadingComponent/LoadingComponent';
 
 const LoginPage = observer(() => {
   const [login, setLogin] = React.useState(null);
@@ -48,7 +49,10 @@ const LoginPage = observer(() => {
 
 
   return (
-    <LoginComponent loading={loading} error={error} setLogin={setLogin} setPassword={setPassword} />
+    <>
+      {loading && <LoadingComponent loading={loading} />}
+      <LoginComponent loading={loading} error={error} setLogin={setLogin} setPassword={setPassword} />
+    </>
   );
 });
 
