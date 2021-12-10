@@ -1,33 +1,64 @@
-import { TextField, Select, Box, MenuItem, Button, Typography, FormControl, InputLabel } from '@mui/material';
+import {
+  TextField,
+  Select,
+  Box,
+  MenuItem,
+  Button,
+  Typography,
+  FormControl,
+  InputLabel,
+  Alert,
+
+} from '@mui/material';
 import React from 'react';
 import PaperContainer from '../PaperContainer/PaperContainer';
 import { useQueryHandler } from '../../Hooks/queryHandler.hook';
-import sharedClasses from '../../sharedStyles.module.css'
-const UserCalculatorComponent = ({ clickAddHandler, unit, setUnit, tax, success, error, clickHandler, calcData, setCalcData, calcType, setCalcType }) => {
+import ConfigData from "../../configData.json";
+import { TransferModel } from '../../../transferModel/transferModel';
+import { actionTypes } from '../../Utils/actionTypes';
+import CategoryChipList from '../CategoryChipList/CategoryChipList';
+
+import CategoryList from '../CategoryList/CategoryList';
+
+const UserCalculatorComponent = ({ selectedCategories, setSelectedCategories, clickAddHandler, unit, setUnit, tax, success, error, clickHandler, calcData, setCalcData, calcType, setCalcType }) => {
   const { loading, request } = useQueryHandler();
+  const [chipData, setChipData] = React.useState([]);
+
 
   const handleChange = (e) => {
     setCalcType(e.target.value);
     setCalcData({});
     tax.set(null);
+    setSelectedCategories(new Set());
 
   }
   const handleClick = async e => {
     await clickHandler();
     await clickAddHandler();
   }
+
+  const addCategory = (value) => () => {
+    setSelectedCategories(prev => new Set(prev.add(value)));
+    console.log(value);
+    console.log(selectedCategories);
+  }
+
+  React.useEffect(() => {
+    (async () => {
+      const response = await request(ConfigData.queryLink, { ...new TransferModel({}, actionTypes.RETRIVEVE_ALL_CATEGORIES) });
+      setChipData(JSON.parse(response.executionResult).responseModel.categoriesList);
+    })()
+  }, [])
+
   return (
-    <PaperContainer widthProp={800} heightProp={450} displayProp="flex" elevation={4} paddingProp={4} justifyContent="flex-start" alignItems="center" flexFlow="row wrap">
-      <Box display="flex" alignItems="center" justifyContent="flex-start" flexDirection="column" minWidth="300px" minHeight="400px" sx={{
-        '& * ': {
-          paddingTop: "48px"
-        }
-      }}>
-        <Typography variant="h5">Таможенный калькулятор</Typography>
-        {tax.get() > 0 && <Typography>Цена товара с пошлиной: {tax.get()} € </Typography>}
-        <Typography fontStyle="italic" color="CaptionText" variant="caption">Курс ЦБ взят: 1€ ≈ 2.87 Br</Typography>
-        {error && <Box className={sharedClasses.errorBox}>{error}</Box>}
-        {success && <Box className={sharedClasses.successBox}>{success}</Box>}
+    <PaperContainer widthProp={900} heightProp={450} displayProp="flex" elevation={4} paddingProp={4} justifyContent="space-evenly" alignItems="center" flexFlow="row wrap">
+      <Box display="flex" alignItems="center" justifyContent="flex-start" flexDirection="column" minWidth="300px" minHeight="400px">
+        <Typography sx={{ padding: "20px 0px 20px 0px" }} variant="h5">Таможенный калькулятор</Typography>
+        {tax.get() > 0 && <Typography>Стоимость растаможки: {tax.get()} € </Typography>}
+        <Typography sx={{ padding: "20px 0px 20px 0px" }} fontStyle="italic" color="CaptionText" variant="caption">Курс ЦБ взят: 1€ ≈ 2.87 Br</Typography>
+        {error && <Alert sx={{ mt: 3, pt: 0 }} severity='error'>{error}</Alert>}
+        {success && <Alert sx={{ mt: 3, pt: 0 }} severity='success'>{success}</Alert>}
+        <CategoryList chipData={chipData} addCategory={addCategory} />
       </Box>
       <Box display="flex" flexDirection="column">
         <Box id="main-calc-field" ml={4} display="flex" sx={
@@ -50,15 +81,15 @@ const UserCalculatorComponent = ({ clickAddHandler, unit, setUnit, tax, success,
           {calcType === "item" && (<>
             <TextField variant="filled" label="Название" name="unitTitle" onChange={e => setUnit({ ...unit, [e.target.name]: e.target.value })} />
             <TextField variant="filled" label="Описание" name="unitDesc" onChange={e => setUnit({ ...unit, [e.target.name]: e.target.value })} />
-            <TextField variant="filled" label="Стоимость посылки (€)" name="unitCost" onChange={e => setCalcData({ ...calcData, [e.target.name]: e.target.value })} />
-            <TextField variant="filled" label="Вес посылки" name="unitWeight" onChange={e => setCalcData({ ...calcData, [e.target.name]: e.target.value })} /></>)}
+            <TextField type="number" variant="filled" label="Стоимость посылки (€)" name="unitCost" onChange={e => setCalcData({ ...calcData, [e.target.name]: e.target.value })} />
+            <TextField type="number" variant="filled" label="Вес посылки" name="unitWeight" onChange={e => setCalcData({ ...calcData, [e.target.name]: e.target.value })} /></>)}
           {calcType === 'auto' && (
             <>
               <TextField variant="filled" label="Название" name="autoTitle" onChange={e => setUnit({ ...unit, [e.target.name]: e.target.value })} />
               <TextField variant="filled" label="Описание" name="autoDesc" onChange={e => setUnit({ ...unit, [e.target.name]: e.target.value })} />
-              <TextField variant="filled" label="Объем двигателя" name="engineCapacity" onChange={e => setCalcData({ ...calcData, [e.target.name]: e.target.value })} />
-              <TextField variant="filled" label="Год выпуска" name="carAge" onChange={e => setCalcData({ ...calcData, [e.target.name]: e.target.value })} />
-              <TextField variant="filled" label="Стоимость авто (€)" name="carCost" onChange={e => setCalcData({ ...calcData, [e.target.name]: e.target.value })} />
+              <TextField type="number" variant="filled" label="Объем двигателя" name="engineCapacity" onChange={e => setCalcData({ ...calcData, [e.target.name]: e.target.value })} />
+              <TextField type="number" variant="filled" label="Год выпуска" name="carAge" onChange={e => setCalcData({ ...calcData, [e.target.name]: e.target.value })} />
+              <TextField type="number" variant="filled" label="Стоимость авто (€)" name="carCost" onChange={e => setCalcData({ ...calcData, [e.target.name]: e.target.value })} />
 
             </>
           )}
@@ -68,6 +99,7 @@ const UserCalculatorComponent = ({ clickAddHandler, unit, setUnit, tax, success,
           justifyContent: 'flex-end',
           padding: 2
         }}>
+          <CategoryChipList selectedCategories={selectedCategories} setSelectedCategories={setSelectedCategories} chipData={chipData} ></CategoryChipList>
           <Button sx={{ marginLeft: 3 }} variant="contained" color="info" onClick={handleClick}>Добавить</Button>
         </Box>
       </Box>

@@ -33,6 +33,8 @@ public class AddUnitController extends BaseRequestController<UnitAddRequestTrans
         unit.setUnitTitle(unitAddRequestTransferModel.getUnitTitle());
         unit.setCartId(unitAddRequestTransferModel.getCartId());
 
+        UnitContext.CreateNewUnit(unit, unitAddRequestTransferModel.getCategoryIds());
+
         return new UnitAddResponseTransferModel();
     }
 }

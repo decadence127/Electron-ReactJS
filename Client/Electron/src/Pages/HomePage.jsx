@@ -17,6 +17,7 @@ const HomePage = observer(() => {
   const [success, setSuccess] = React.useState(null);
   const [error, setError] = React.useState(null);
   const [unit, setUnit] = React.useState();
+  const [selectedCategories, setSelectedCategories] = React.useState(new Set(calcType === "item" ? [2] : [1]));
   const { user } = React.useContext(Context);
 
   const typeChanger = (value) => {
@@ -25,6 +26,10 @@ const HomePage = observer(() => {
   const tax = useStateSync(0);
   const clickHandler = async (e) => {
     try {
+      if (calcData.unitWeight && calcData.unitWeight < 0 || calcData.unitWeight && calcData.unitCost < 0) {
+        setError("Нельзя вводить отрицательные числа");
+        return;
+      }
       const response = calcType === "item" ?
         await request(ConfigData.queryLink, { ...new TransferModel({ ...calcData }, actionTypes.CALC_GOODS_ACTION) }) :
         await request(ConfigData.queryLink, { ...new TransferModel({ ...calcData }, actionTypes.CALC_AUTO_ACTION) })
@@ -43,7 +48,7 @@ const HomePage = observer(() => {
     if (user.isAuth && tax.get()) {
       setSuccess(null);
       setError(null);
-      const response = await request(ConfigData.queryLink, { ...new TransferModel({ ...unit, ['taxValue']: tax.get(), ['cartId']: user.userData.cartId }, actionTypes.ADD_UNIT) })
+      const response = await request(ConfigData.queryLink, { ...new TransferModel({ ...unit, ['taxValue']: tax.get(), ['cartId']: user.userData.cartId, ['categoryIds']: [...selectedCategories] }, actionTypes.ADD_UNIT) })
       if (response.executionCode === 1) {
         setError(JSON.parse(response.executionResult).errorMessage)
         return;
@@ -54,7 +59,7 @@ const HomePage = observer(() => {
   return (
     <>
       {loading && <LinearProgress />}
-      {user.isAuth ? <UserCalculatorComponent clickAddHandler={clickUserAddHandler} success={success} unit={unit} setUnit={setUnit} tax={tax} calcType={calcType} setCalcType={typeChanger} calcData={calcData} setCalcData={setCalcData} clickHandler={clickHandler} error={error} /> : <CalculatorComponent tax={tax} calcType={calcType} setCalcType={typeChanger} calcData={calcData} setCalcData={setCalcData} clickHandler={clickHandler} error={error} />}
+      {user.isAuth ? <UserCalculatorComponent selectedCategories={selectedCategories} setSelectedCategories={setSelectedCategories} clickAddHandler={clickUserAddHandler} success={success} unit={unit} setUnit={setUnit} tax={tax} calcType={calcType} setCalcType={typeChanger} calcData={calcData} setCalcData={setCalcData} clickHandler={clickHandler} error={error} /> : <CalculatorComponent tax={tax} calcType={calcType} setCalcType={typeChanger} calcData={calcData} setCalcData={setCalcData} clickHandler={clickHandler} error={error} />}
     </>
   );
 });

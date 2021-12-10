@@ -5,67 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f63b3cd-da5b-44fd-b771-40d4e08399e8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Client/Electron/src/Components/LoadingComponent/LoadingComponent.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/Electron/src/Components/UnitsList/UnitsList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Context/CategoryUnitRelationContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerImplementation/RetrieveAllUnitsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Models/RequestModels/RetrieveAllUnitsRequestTransferModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Models/ResponseModels/CustomsCategoryResponseTransferModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Models/ResponseModels/RetrieveAllUnitsResponseTransferModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Models/ResponseModels/UnitResponseTransferModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Context/CategoryContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Context/CategoryUnitRelationContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerImplementation/RetrieveAllCategoriesController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerImplementation/RetrieveAllUnitsController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Models/RequestModels/CustomsCategoryRequestTransferModel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Models/RequestModels/RetrieveAllCategoriesRequestTransferModel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Models/RequestModels/RetrieveAllUnitsRequestTransferModel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Models/ResponseModels/CustomsCategoryResponseTransferModel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Models/ResponseModels/RetrieveAllCategoriesResponseTransferModel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Models/ResponseModels/RetrieveAllUnitsResponseTransferModel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Models/ResponseModels/UnitResponseTransferModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Components/LoginComponent/LoginComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Components/LoginComponent/LoginComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Components/NavbarComponent/NavbarComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Components/NavbarComponent/NavbarComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Components/RegistrationComponent/RegistrationComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Components/RegistrationComponent/RegistrationComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Components/UnsuccessfullReconnection/UnsuccessfulReconnection.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Components/UsersList/UsersList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Components/UsersList/UsersList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Pages/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Pages/LoginPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Pages/RegistrationPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Pages/RegistrationPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Pages/UnitPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Pages/UnitPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Pages/UnitsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Pages/UnitsPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Pages/UserPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Pages/UserPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Pages/UsersPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Pages/UsersPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Utils/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Utils/actionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/Electron/src/Utils/propsArrays.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/Electron/src/Utils/propsArrays.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Context/CategoryContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Context/CategoryContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Context/CategoryUnitRelationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Context/CategoryUnitRelationContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Context/UnitContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Context/UnitContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Context/UserContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Context/UserContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerImplementation/AddUnitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerImplementation/AddUnitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerImplementation/RetrieveAllCategoriesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerImplementation/RetrieveAllCategoriesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/EntityModel/UnitCustomsCategoryEntityModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/EntityModel/UnitCustomsCategoryEntityModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/RequestModels/CustomsCategoryRequestTransferModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/RequestModels/CustomsCategoryRequestTransferModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/RequestModels/RetrieveAllCategoriesRequestTransferModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/RequestModels/RetrieveAllCategoriesRequestTransferModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerImplementation/CustomsAutoCalculationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerImplementation/CustomsAutoCalculationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/ControllerImplementation/CustomsGoodsCalculationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerImplementation/CustomsGoodsCalculationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Models/RequestModels/UnitAddRequestTransferModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/RequestModels/UnitAddRequestTransferModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/ResponseModels/RetrieveAllCategoriesResponseTransferModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/ResponseModels/RetrieveAllCategoriesResponseTransferModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/ResponseModels/RetrieveAllUsersResponseTransferModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/ResponseModels/RetrieveAllUsersResponseTransferModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/UnitEntityRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/UnitEntityRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/UnitEntityResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/UnitEntityResponseModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/ConstTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/ConstTypes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Context/CategoryUnitRelationContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Context/CategoryUnitRelationContext.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Context/UnitContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Context/UnitContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Context/UserContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Context/UserContext.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerImplementation/AddUnitController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerImplementation/AddUnitController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerProvider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Models/EntityModel/UnitCustomsCategoryEntityModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Models/EntityModel/UnitCustomsCategoryEntityModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Models/RequestModels/UnitAddRequestTransferModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Models/RequestModels/UnitAddRequestTransferModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Models/ResponseModels/RetrieveAllUsersResponseTransferModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Models/ResponseModels/RetrieveAllUsersResponseTransferModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Models/UnitEntityRequestModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Models/UnitEntityRequestModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Models/UnitEntityResponseModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Models/UnitEntityResponseModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Utils/ConstTypes$ActionTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Utils/ConstTypes$ActionTypes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Utils/ConstTypes$ExecutionResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Utils/ConstTypes$ExecutionResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Utils/ConstTypes$UserRoles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Utils/ConstTypes$UserRoles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Utils/ConstTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Utils/ConstTypes.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,6 +102,7 @@
       <workItem from="1638966389944" duration="1203000" />
       <workItem from="1638983183769" duration="3647000" />
       <workItem from="1639060240388" duration="13914000" />
+      <workItem from="1639143333243" duration="4571000" />
     </task>
     <servers />
   </component>

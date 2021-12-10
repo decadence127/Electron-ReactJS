@@ -26,7 +26,7 @@ public class CustomsGoodsCalculationController extends BaseRequestController<Cus
         float goodsTaxValue = (float) ((calc_cost > 22 && calc_weight <= 10) ? (calc_cost + (calc_cost * 0.15) + fixed_fee) : (calc_cost <= 22 && calc_weight > 10) ? calc_cost + ((calc_weight - 10) * 2 + fixed_fee) : (calc_cost > 22 && calc_weight > 10) ? (calc_weight - 10 * 2) > (calc_cost * 0.15) ? calc_cost + ((calc_weight - 10) * 2) + fixed_fee : (calc_cost + (calc_cost * 0.15)) + fixed_fee : calc_cost);
 
         CustomsCalcGoodsResponseTransferModel model = new CustomsCalcGoodsResponseTransferModel();
-        model.setTaxValue(goodsTaxValue);
+        model.setTaxValue(goodsTaxValue - customsCalcGoodsRequestTransferModel.getUnitCost());
         return model;
     }
 }

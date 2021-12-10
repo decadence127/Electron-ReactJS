@@ -18,7 +18,7 @@ public class CategoryUnitRelationContext {
 
     public static void addCategoryToUnit(int unitId, int categoryId) throws IOException, SQLException {
         var connection = PostgresContext.getInstance().getConnection();
-        String sql = "INSERT INTO %s (\"UnitId\", \"CategoryId\") VALUES (?, ?)".formatted(sqlCategoryTable);
+        String sql = "INSERT INTO %s (\"UnitId\", \"CategoryId\") VALUES (?, ?)".formatted(sqlCategoryRelationTable);
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, unitId);

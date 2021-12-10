@@ -120,9 +120,10 @@ public class UnitContext {
         if(categories != null){
             System.out.println(categories);
             PreparedStatement getId = connection.prepareStatement("SELECT * FROM %s WHERE \"Id\"=(SELECT max(\"Id\") FROM %s)".formatted(sqlUnitTable, sqlUnitTable));
+            ResultSet resultSet1 = getId.executeQuery();
             int unitId = -1;
-            while(resultSet.next()){
-                unitId = resultSet.getInt("Id");
+            while(resultSet1.next()){
+                unitId = resultSet1.getInt("Id");
             }
             if(unitId == -1){
                 throw new Exception("Номер посылки не найден");

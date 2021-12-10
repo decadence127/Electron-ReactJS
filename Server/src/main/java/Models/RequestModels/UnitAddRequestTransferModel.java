@@ -5,16 +5,16 @@ import java.util.ArrayList;
 public class UnitAddRequestTransferModel {
     String unitTitle;
     String unitDesc;
-    ArrayList<Number> categoryId;
+    ArrayList<Integer> categoryIds;
     float taxValue;
     int cartId;
 
-    public ArrayList<Number> getCategoryId() {
-        return categoryId;
+    public ArrayList<Integer> getCategoryIds() {
+        return categoryIds;
     }
 
-    public void setCategoryId(ArrayList<Number> categoryId) {
-        this.categoryId = categoryId;
+    public void setCategoryIds(ArrayList<Integer> categoryIds) {
+        this.categoryIds = categoryIds;
     }
 
     public int getCartId() {

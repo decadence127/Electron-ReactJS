@@ -6,6 +6,7 @@ import Models.ResponseModels.CustomsCalcAutoResponseTransferModel;
 import Utils.ConstTypes;
 
 import java.lang.reflect.Type;
+import java.util.Calendar;
 
 public class CustomsAutoCalculationController extends BaseRequestController<CustomsCalcAutoRequestTransferModel, CustomsCalcAutoResponseTransferModel> {
     @Override
@@ -21,7 +22,8 @@ public class CustomsAutoCalculationController extends BaseRequestController<Cust
     @Override
     protected CustomsCalcAutoResponseTransferModel Execute(CustomsCalcAutoRequestTransferModel customsCalcRequestTransferModel) throws Exception {
         float total_duty = 0;
-        int calc_age = customsCalcRequestTransferModel.getCarAge();
+        int current_year = Calendar.getInstance().get(Calendar.YEAR);
+        int calc_age = current_year - customsCalcRequestTransferModel.getCarAge();
         float calc_price = customsCalcRequestTransferModel.getCarCost();
         int calc_capacity = customsCalcRequestTransferModel.getEngineCapacity();
             if (calc_age < 3)

@@ -6,6 +6,7 @@ import classes from './RegistrationComponent.module.css';
 import sharedClasses from '../../sharedStyles.module.css'
 import { useHistory } from 'react-router';
 import { LOGIN_ROUTE } from '../../Utils/pageNames';
+
 const getSteps = () => {
   return ["Данные для входа", "Доп. информация"]
 }

@@ -4,7 +4,7 @@ import RegistrationComponent from '../Components/RegistrationComponent/Registrat
 import { actionTypes } from '../Utils/actionTypes';
 import { useQueryHandler } from '../Hooks/queryHandler.hook';
 import ConfigData from "../configData.json"
-
+import LoadingComponent from '../Components/LoadingComponent/LoadingComponent';
 
 const RegistrationPage = () => {
   const [credentials, setCredentials] = React.useState({});
