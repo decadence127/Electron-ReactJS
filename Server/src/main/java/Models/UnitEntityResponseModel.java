@@ -17,6 +17,18 @@ public class UnitEntityResponseModel {
     String arrivalDate;
     int cartId;
 
+    @Override
+    public String toString() {
+        return "UnitEntityResponseModel{" +
+                "id=" + id +
+                ", taxValue=" + taxValue +
+                ", unitTitle='" + unitTitle + '\'' +
+                ", unitDesc='" + unitDesc + '\'' +
+                ", arrivalDate='" + arrivalDate + '\'' +
+                ", cartId=" + cartId +
+                '}';
+    }
+
     public String getArrivalDate() {
         return arrivalDate;
     }

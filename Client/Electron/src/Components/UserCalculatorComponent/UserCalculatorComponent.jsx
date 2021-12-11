@@ -85,8 +85,8 @@ const UserCalculatorComponent = ({ selectedCategories, setSelectedCategories, cl
             <TextField type="number" variant="filled" label="Вес посылки" name="unitWeight" onChange={e => setCalcData({ ...calcData, [e.target.name]: e.target.value })} /></>)}
           {calcType === 'auto' && (
             <>
-              <TextField variant="filled" label="Название" name="autoTitle" onChange={e => setUnit({ ...unit, [e.target.name]: e.target.value })} />
-              <TextField variant="filled" label="Описание" name="autoDesc" onChange={e => setUnit({ ...unit, [e.target.name]: e.target.value })} />
+              <TextField variant="filled" label="Название" name="unitTitle" onChange={e => setUnit({ ...unit, [e.target.name]: e.target.value })} />
+              <TextField variant="filled" label="Описание" name="unitDesc" onChange={e => setUnit({ ...unit, [e.target.name]: e.target.value })} />
               <TextField type="number" variant="filled" label="Объем двигателя" name="engineCapacity" onChange={e => setCalcData({ ...calcData, [e.target.name]: e.target.value })} />
               <TextField type="number" variant="filled" label="Год выпуска" name="carAge" onChange={e => setCalcData({ ...calcData, [e.target.name]: e.target.value })} />
               <TextField type="number" variant="filled" label="Стоимость авто (€)" name="carCost" onChange={e => setCalcData({ ...calcData, [e.target.name]: e.target.value })} />

@@ -49,8 +49,8 @@ CREATE TABLE "customsSchema"."DeclaredUnit"
     "CartId"     int            NULL,
     "UnitDescId" int            NULL,
     PRIMARY KEY ("Id"),
-    FOREIGN KEY ("CartId") REFERENCES "customsSchema"."Cart" ("Id") ON UPDATE CASCADE ON DELETE RESTRICT,
-    FOREIGN KEY ("UnitDescId") REFERENCES "customsSchema"."UnitDesc" ("Id") ON UPDATE CASCADE ON DELETE RESTRICT
+    FOREIGN KEY ("CartId") REFERENCES "customsSchema"."Cart" ("Id") ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY ("UnitDescId") REFERENCES "customsSchema"."UnitDesc" ("Id") ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE "customsSchema"."UnitCategoryRelation"

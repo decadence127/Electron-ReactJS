@@ -201,11 +201,11 @@ export const EnhancedTableToolbar = ({ reload, ...props }) => {
           id="tableTitle"
           component="div"
         >
-          {props.type === 'users' ? 'Пользователи' : 'Посылки'}
+          {props.type === 'users' ? 'Пользователи' : 'Все вещи'}
         </Typography>
       )}
 
-      {numSelected > 0 ? (
+      {props.type === 'users' && numSelected > 0 ? (
         <>
           <Tooltip title="Заблокировать">
             <IconButton onClick={async e => { await banClickHandler(props.selectedArray) }}>
@@ -240,6 +240,16 @@ export const EnhancedTableToolbar = ({ reload, ...props }) => {
           </IconButton>
         </Tooltip>
       )}
+      {props.type === 'items' && numSelected > 0 && (
+        <>
+          <Tooltip title="Удалить">
+            <IconButton onClick={async e => { await banClickHandler(props.selectedArray) }}>
+              <DeleteIcon />
+            </IconButton>
+          </Tooltip>
+        </>
+      )}
+
     </Toolbar>
   );
 };

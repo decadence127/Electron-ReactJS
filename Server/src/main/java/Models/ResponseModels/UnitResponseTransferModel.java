@@ -6,8 +6,31 @@ import Models.EntityModel.UnitDescEntityModel;
 import java.util.ArrayList;
 
 public class UnitResponseTransferModel {
+    int id;
     String unitTitle;
     String userEmail;
+
+    @Override
+    public String toString() {
+        return "UnitResponseTransferModel{" +
+                "id=" + id +
+                ", unitTitle='" + unitTitle + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", unitDesc='" + unitDesc + '\'' +
+                ", arrivalDate='" + arrivalDate + '\'' +
+                ", categoryList=" + categoryList +
+                ", taxValue=" + taxValue +
+                '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     String unitDesc;
     String arrivalDate;
     ArrayList<UnitCustomsCategoryEntityModel> categoryList;

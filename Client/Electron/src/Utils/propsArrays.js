@@ -56,7 +56,31 @@ export const itemsHeadCells = [
     id: "taxValue",
     numeric: true,
     disablePadding: false,
-    label: "Стоимость с пошлниой",
+    label: "Размер пошлины (€)",
+  },
+  {
+    id: "email",
+    numeric: true,
+    disablePadding: false,
+    label: "Email пользователя",
+  },
+  {
+    id: "desc",
+    numeric: true,
+    disablePadding: false,
+    label: "Описание",
+  },
+  {
+    id: "categories",
+    numeric: true,
+    disablePadding: false,
+    label: "Категории",
+  },
+  {
+    id: "addDate",
+    numeric: true,
+    disablePadding: false,
+    label: "Дата добавления",
   },
 ];
 
@@ -69,6 +93,7 @@ export const adminAuthPages = [
   { title: "Список всех вещей", route: UNITS_ROUTE },
   { title: "Список всех пользователей", route: USERS_ROUTE },
 ];
+export const userAuthPages = [{ title: "Калькулятор", route: HOME_ROUTE }];
 export const operatorAuthPages = [
   { title: "Калькулятор", route: HOME_ROUTE },
   { title: "Список всех вещей", route: UNITS_ROUTE },

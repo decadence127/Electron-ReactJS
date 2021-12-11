@@ -10,10 +10,10 @@ import {
 import HomePage from "../Pages/HomePage.jsx";
 import LoginPage from "../Pages/LoginPage.jsx";
 import RegistrationPage from "../Pages/RegistrationPage.jsx";
-import UnitPage from "../Pages/UnitPage.jsx";
 import UserPage from "../Pages/UserPage.jsx";
 import UsersPage from "../Pages/UsersPage";
 import UnitsPage from "../Pages/UnitPage.jsx";
+import UserUnitsPage from "../Pages/UnitsPage";
 
 export const publicRoutes = [
   {
@@ -36,7 +36,7 @@ export const authRoutes = [
   },
   {
     path: UNIT_ROUTE,
-    Component: UnitPage,
+    Component: UserUnitsPage,
   },
   {
     path: USERS_ROUTE,

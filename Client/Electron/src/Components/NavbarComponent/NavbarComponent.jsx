@@ -2,7 +2,7 @@ import { AppBar, Toolbar, Typography, IconButton, Menu, MenuItem, Container, Too
 import { Box } from '@mui/system';
 import MenuIcon from '@mui/icons-material/Menu';
 import React from 'react';
-import { HOME_ROUTE, LOGIN_ROUTE, UNIT_ROUTE, USERS_ROUTE, USER_ROUTE } from '../../Utils/pageNames';
+import { HOME_ROUTE, LOGIN_ROUTE, UNIT_ROUTE, USERS_ROUTE, UNITS_ROUTE, USER_ROUTE } from '../../Utils/pageNames';
 import classes from "./NavbarComponent.module.css"
 import { useTheme } from '@mui/material/styles';
 import { useHistory } from 'react-router';
@@ -11,7 +11,7 @@ import { observer } from 'mobx-react-lite';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { Link, NavLink } from 'react-router-dom';
-import { pages, adminAuthPages, operatorAuthPages } from '../../Utils/propsArrays';
+import { pages, adminAuthPages, operatorAuthPages, userAuthPages } from '../../Utils/propsArrays';
 
 
 
@@ -26,7 +26,9 @@ const NavbarComponent = observer(() => {
 
   const authPages = user.userData.userRole === 3
     ? adminAuthPages
-    : operatorAuthPages
+    : user.userData.userRole === 2
+      ? operatorAuthPages
+      : userAuthPages
 
 
   const logoutHandler = () => {
@@ -43,7 +45,7 @@ const NavbarComponent = observer(() => {
     history.push(USER_ROUTE);
   }
   const itemHandler = () => {
-    console.log("clicked");
+    history.push(UNIT_ROUTE)
   }
   const settings = [
     { title: 'Профиль', handler: openProfileHandler },

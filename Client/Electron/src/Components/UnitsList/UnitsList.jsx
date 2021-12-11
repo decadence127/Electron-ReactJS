@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableRow from '@mui/material/TableRow';
+import TableFooter from '@mui/material/TableFooter';
+import TablePagination from '@mui/material/TablePagination';
+import SearchBar from 'material-ui-search-bar'
+import Paper from '@mui/material/Paper';
+import TablePaginator from '../TablePaginator/TablePaginator';
+import { EnhancedTableHead, EnhancedTableToolbar, getComparator, stableSort } from '../EnhancedTableHead/EnhancedTableHead';
+import { Checkbox, Chip } from '@mui/material';
 
 const UnitsList = ({ units, setReload }) => {
   const [order, setOrder] = React.useState('asc');
-  const [orderBy, setOrderBy] = React.useState('name');
+  const [orderBy, setOrderBy] = React.useState('unitTitle');
   const [page, setPage] = React.useState(0);
   const [searched, setSearched] = useState("");
   const [dense, setDense] = React.useState(false);
@@ -13,7 +25,7 @@ const UnitsList = ({ units, setReload }) => {
 
   const requestSearch = (searchedVal) => {
     const filteredRows = units.filter((row) => {
-      return row.Name.toLowerCase().includes(searchedVal.toLowerCase());
+      return row.userEmail.toLowerCase().includes(searchedVal.toLowerCase());
     });
     setUsers(filteredRows);
   };
@@ -26,7 +38,7 @@ const UnitsList = ({ units, setReload }) => {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = units.map((n) => n.Name);
+      const newSelecteds = units.map((n) => n.id);
       setSelected(newSelecteds);
       return;
     }
@@ -99,7 +111,7 @@ const UnitsList = ({ units, setReload }) => {
             ? stableSort(units, getComparator(order, orderBy)).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : units
           ).map((unit, index) => {
-            const isItemSelected = isSelected(unit.email);
+            const isItemSelected = isSelected(unit.id);
             const labelId = `enhanced-table-checkbox-${index}`;
 
             return (<TableRow
@@ -112,6 +124,7 @@ const UnitsList = ({ units, setReload }) => {
             >
               <TableCell padding="checkbox">
                 <Checkbox
+                  key={units.id}
                   color="primary"
                   checked={isItemSelected}
                   inputProps={{
@@ -119,14 +132,14 @@ const UnitsList = ({ units, setReload }) => {
                   }}
                 />
               </TableCell>
-              <TableCell padding="none" component="th" id={labelId} scope="row">
-                {unit.Name}
+              <TableCell key={units.id} padding="none" component="th" id={labelId} scope="row">
+                {unit.unitTitle}
               </TableCell>
-              <TableCell align="right">{unit.unitTitle}</TableCell>
-              <TableCell align="right">{unit.email}</TableCell>
-              <TableCell align="right">{unit.userRole === 3 ? "Администратор" : unit.userRole === 2 ? "Оператор" : "Пользователь"}</TableCell>
-              <TableCell align="right">{unit.cartId}</TableCell>
-              <TableCell align="right">{unit.isBanned ? "Да" : "Нет"}</TableCell>
+              <TableCell key={units.id} align="right">{unit.taxValue}</TableCell>
+              <TableCell key={units.id} align="right">{unit.userEmail}</TableCell>
+              <TableCell key={units.id} align="right">{unit.unitDesc}</TableCell>
+              <TableCell key={units.id} align="right">{unit.categoryList.map((category) => category.category)}</TableCell>
+              <TableCell key={units.id} align="right">{unit.arrivalDate}</TableCell>
             </TableRow>)
           })}
           {emptyRows > 0 && (

@@ -29,6 +29,8 @@ public class ControllerProvider {
         requestControllers.add(new UnbanUsersController());
         requestControllers.add(new RetrieveAllCategoriesController());
         requestControllers.add(new RetrieveAllUnitsController());
+        requestControllers.add(new DeleteUnitsController());
+        requestControllers.add(new GetUnitsByCartController());
     }
 
     public TransferResponseModel Execute(TransferRequestModel clientMessage) {

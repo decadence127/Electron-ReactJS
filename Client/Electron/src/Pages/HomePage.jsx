@@ -47,6 +47,7 @@ const HomePage = observer(() => {
   const clickUserAddHandler = async (e) => {
     if (user.isAuth && tax.get()) {
       setSuccess(null);
+
       setError(null);
       const response = await request(ConfigData.queryLink, { ...new TransferModel({ ...unit, ['taxValue']: tax.get(), ['cartId']: user.userData.cartId, ['categoryIds']: [...selectedCategories] }, actionTypes.ADD_UNIT) })
       if (response.executionCode === 1) {
