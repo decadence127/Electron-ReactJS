@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class CategoryContext {
     private static final String sqlCategoryTable = "\"customsSchema\".\"CustomsCategory\"";
-
+    private static final String sqlCategoryRelationTable = "\"customsSchema\".\"UnitCategoryRelation\"";
     public static void CreateNewCategory(UnitCustomsCategoryEntityModel category) throws IOException, SQLException {
         var connection = PostgresContext.getInstance().getConnection();
 
@@ -24,6 +24,20 @@ public class CategoryContext {
         preparedStatement.setInt(2, category.getTaxPercentage());
 
         preparedStatement.executeUpdate();
+
+    }
+    public static void DeleteCategoryById(int id) throws IOException, SQLException{
+        var connection = PostgresContext.getInstance().getConnection();
+
+        String sqlCategoryRelation = "DELETE FROM %s WHERE \"CategoryId\" = ?".formatted(sqlCategoryRelationTable);
+        String sql = "DELETE FROM %s WHERE \"Id\" = ?".formatted(sqlCategoryTable);
+        PreparedStatement preparedStatementCR = connection.prepareStatement(sqlCategoryRelation);
+        preparedStatementCR.setInt(1, id);
+        preparedStatementCR.executeUpdate();
+
+        PreparedStatement preparedStatementUnit = connection.prepareStatement(sql);
+        preparedStatementUnit.setInt(1, id);
+        preparedStatementUnit.executeUpdate();
 
     }
 

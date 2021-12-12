@@ -18,6 +18,9 @@ public class ConstTypes {
         public static final int PROMOTION_ACTION = 13;
         public static final int UNBAN_USERS = 14;
         public static final int RETRIEVE_ALL_CATEGORIES = 15;
+        public static final int UPDATE_UNIT = 16;
+        public static final int CREATE_CATEGORY = 17;
+        public static final int DELETE_CATEGORY = 18;
 
         private ActionTypes(){};
     }

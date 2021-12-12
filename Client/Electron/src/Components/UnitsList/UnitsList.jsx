@@ -12,8 +12,11 @@ import TablePaginator from '../TablePaginator/TablePaginator';
 import { EnhancedTableHead, EnhancedTableToolbar, getComparator, stableSort } from '../EnhancedTableHead/EnhancedTableHead';
 import { Button, Checkbox, Chip } from '@mui/material';
 import ElectronWindowsApi from '../../ElectronComponents/renderer_sided/ElectronWindowsApi';
-
-const UnitsList = ({ units, setReload }) => {
+import { useQueryHandler } from '../../Hooks/queryHandler.hook';
+import ConfigData from '../../configData.json'
+import { TransferModel } from '../../../transferModel/transferModel';
+import { actionTypes } from '../../Utils/actionTypes';
+const UnitsList = ({ units, error, success, setReload, newItemData, setNewItemData, changeHandler }) => {
   const windowApi = new ElectronWindowsApi();
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('unitTitle');
@@ -22,6 +25,7 @@ const UnitsList = ({ units, setReload }) => {
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [selected, setSelected] = React.useState([]);
+
 
 
 
@@ -100,6 +104,11 @@ const UnitsList = ({ units, setReload }) => {
         type="items"
         reload={setReload}
         name="Все вещи"
+        changeHandler={changeHandler}
+        newItemData={newItemData}
+        success={success}
+        error={error}
+        setNewItemData={setNewItemData}
         selectedArray={selected} />
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <EnhancedTableHead
@@ -121,16 +130,16 @@ const UnitsList = ({ units, setReload }) => {
             const labelId = `enhanced-table-checkbox-${index}`;
 
             return (<TableRow
-              onClick={(event) => handleClick(event, units.id)}
+              onClick={(event) => handleClick(event, unit.id)}
               tabIndex={-1}
               selected={isItemSelected}
               aria-checked={isItemSelected}
-              key={units.id}
+              key={unit.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell padding="checkbox">
                 <Checkbox
-                  key={units.id}
+                  key={unit.id}
                   color="primary"
                   checked={isItemSelected}
                   inputProps={{
@@ -138,14 +147,14 @@ const UnitsList = ({ units, setReload }) => {
                   }}
                 />
               </TableCell>
-              <TableCell key={units.id} padding="none" component="th" id={labelId} scope="row">
+              <TableCell padding="none" component="th" id={labelId} scope="row">
                 {unit.unitTitle}
               </TableCell>
-              <TableCell key={units.id} align="right">{unit.taxValue}</TableCell>
-              <TableCell key={units.id} align="right">{unit.userEmail}</TableCell>
-              <TableCell key={units.id} align="right">{unit.unitDesc}</TableCell>
-              <TableCell key={units.id} align="right">{unit.categoryList.map((category) => category.category + " ")}</TableCell>
-              <TableCell key={units.id} align="right">{unit.arrivalDate}</TableCell>
+              <TableCell align="right">{unit.taxValue}</TableCell>
+              <TableCell align="right">{unit.userEmail}</TableCell>
+              <TableCell align="right">{unit.unitDesc}</TableCell>
+              <TableCell align="right">{unit.categoryList.map((category) => category.category + " ")}</TableCell>
+              <TableCell align="right">{unit.arrivalDate}</TableCell>
             </TableRow>)
           })}
           {emptyRows > 0 && (
@@ -180,7 +189,6 @@ const UnitsList = ({ units, setReload }) => {
           </TableRow>
         </TableFooter>
       </Table>
-      <Button onClick={createReport}>Создать отчет</Button>
     </TableContainer>
 
   );

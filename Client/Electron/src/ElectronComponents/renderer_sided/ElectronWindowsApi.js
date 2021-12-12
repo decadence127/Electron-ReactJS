@@ -4,6 +4,7 @@ class ElectronWindowsApi {
   }
   createReport(data) {
     window.api.request("createReport", data);
+    console.log("called");
   }
   minimize() {
     window.api.request("toMain", "minimize");

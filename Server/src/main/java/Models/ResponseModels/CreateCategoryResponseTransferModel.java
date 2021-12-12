@@ -1,2 +1,4 @@
-package Models.ResponseModels;public class CreateCategoryResponseTransferModel {
+package Models.ResponseModels;
+
+public class CreateCategoryResponseTransferModel {
 }

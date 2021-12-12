@@ -6,6 +6,7 @@ import {
   USER_ROUTE,
   UNITS_ROUTE,
   STATS_ROUTE,
+  CATEGORY_ROUTE,
 } from "./pageNames";
 
 export const usersHeadCells = [
@@ -93,6 +94,7 @@ export const adminAuthPages = [
   { title: "Калькулятор", route: HOME_ROUTE },
   { title: "Список всех вещей", route: UNITS_ROUTE },
   { title: "Список всех пользователей", route: USERS_ROUTE },
+  { title: "Категории", route: CATEGORY_ROUTE },
   { title: "Статистика", route: STATS_ROUTE },
 ];
 export const userAuthPages = [{ title: "Калькулятор", route: HOME_ROUTE }];
@@ -100,5 +102,6 @@ export const userAuthPages = [{ title: "Калькулятор", route: HOME_ROU
 export const operatorAuthPages = [
   { title: "Калькулятор", route: HOME_ROUTE },
   { title: "Список всех вещей", route: UNITS_ROUTE },
+  { title: "Категории", route: CATEGORY_ROUTE },
   { title: "Статистика", route: STATS_ROUTE },
 ];

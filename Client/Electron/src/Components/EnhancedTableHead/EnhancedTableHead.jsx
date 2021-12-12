@@ -16,6 +16,7 @@ import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import NewReleasesIcon from '@mui/icons-material/NewReleases';
 import AutoFixOffIcon from '@mui/icons-material/AutoFixOff';
 import BlockIcon from '@mui/icons-material/Block';
+import PublishedWithChangesIcon from '@mui/icons-material/PublishedWithChanges';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import { itemsHeadCells, usersHeadCells } from '../../Utils/propsArrays';
@@ -23,6 +24,7 @@ import { useQueryHandler } from '../../Hooks/queryHandler.hook';
 import { TransferModel } from '../../../transferModel/transferModel';
 import { actionTypes } from '../../Utils/actionTypes';
 import ConfigData from '../../configData.json'
+import ChangeModal from '../ChangeModal/ChangeModal';
 
 export function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -121,10 +123,11 @@ export const EnhancedTableHead = (props) => {
 }
 
 
-export const EnhancedTableToolbar = ({ reload, ...props }) => {
+export const EnhancedTableToolbar = ({ success, errorProp, reload, newItemData, setNewItemData, changeHandler, ...props }) => {
   const { numSelected } = props;
   const { request } = useQueryHandler();
   const [error, setError] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
   const banClickHandler = async (selectedArray) => {
 
     try {
@@ -247,6 +250,12 @@ export const EnhancedTableToolbar = ({ reload, ...props }) => {
               <DeleteIcon />
             </IconButton>
           </Tooltip>
+          {!(numSelected > 1) && <Tooltip title="Изменить">
+            <IconButton onClick={e => setOpen(true)}>
+              <PublishedWithChangesIcon />
+              <ChangeModal id={props.selectedArray[0]} success={success} error={errorProp} open={open} setOpen={setOpen} changeHandler={changeHandler} setNewItemData={setNewItemData} newItemData={newItemData} />
+            </IconButton>
+          </Tooltip>}
         </>
       )}
 

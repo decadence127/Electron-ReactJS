@@ -1,2 +1,4 @@
-package Models.ResponseModels;public class DeleteCategoryResponseTransferModel {
+package Models.ResponseModels;
+
+public class DeleteCategoryResponseTransferModel {
 }

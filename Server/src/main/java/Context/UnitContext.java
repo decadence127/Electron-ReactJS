@@ -1,5 +1,7 @@
 package Context;
 
+import Models.EntityModel.UnitEntityModel;
+import Models.EntityModel.UserEntityModel;
 import Models.UnitEntityRequestModel;
 import Models.UnitEntityResponseModel;
 
@@ -45,7 +47,22 @@ public class UnitContext {
 
         return units;
     }
-
+    public static void updateUnitById(UnitEntityResponseModel unit) throws IOException, SQLException {
+        var connection = PostgresContext.getInstance().getConnection();
+        System.out.println(unit);
+        String sql = "UPDATE %s SET \"UnitTitle\" = ? WHERE \"Id\" = ?".formatted(sqlUnitTable);
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, unit.getUnitTitle());
+        preparedStatement.setInt(2, unit.getId());
+        preparedStatement.executeUpdate();
+        String sqlDesc = "UPDATE %s SET \"Description\" = ? WHERE \"Id\" = ?".formatted(sqlDescTable);
+        PreparedStatement preparedStatement1 = connection.prepareStatement(sqlDesc);
+        if(unit.getUnitDesc() != ""){
+            preparedStatement1.setString(1, unit.getUnitDesc());
+            preparedStatement1.setInt(2,unit.getId());
+            preparedStatement1.executeUpdate();
+        }
+    }
     public static UnitEntityResponseModel getUnitsById(int Id) throws SQLException {
         var connection = PostgresContext.getInstance().getConnection();
         String sql = "SELECT * FROM %s WHERE \"Id\" = ?".formatted(sqlUnitTable);
@@ -60,10 +77,12 @@ public class UnitContext {
         while (resultSet.next()) {
             preparedStatementDesc.setInt(1, resultSet.getInt("UnitDescId"));
             ResultSet resultSet1 = preparedStatementDesc.executeQuery();
-            unit.setUnitTitle(resultSet.getString("Title"));
+            while (resultSet1.next()) {
+                unit.setArrivalDate(resultSet1.getString("ArrivalDate"));
+                unit.setUnitDesc(resultSet1.getString("Description"));
+            }
+            unit.setUnitTitle(resultSet.getString("UnitTitle"));
             unit.setTaxValue(resultSet.getFloat("TaxValue"));
-            unit.setUnitDesc(resultSet1.getString("Description"));
-            unit.setArrivalDate(resultSet1.getString("ArrivalDate"));
         }
 
         return unit;

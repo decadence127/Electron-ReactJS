@@ -31,6 +31,9 @@ public class ControllerProvider {
         requestControllers.add(new RetrieveAllUnitsController());
         requestControllers.add(new DeleteUnitsController());
         requestControllers.add(new GetUnitsByCartController());
+        requestControllers.add(new UpdateUnitController());
+        requestControllers.add(new DeleteCategoryController());
+        requestControllers.add(new CreateNewCategoryController());
     }
 
     public TransferResponseModel Execute(TransferRequestModel clientMessage) {

@@ -6,3 +6,4 @@ export const USER_ROUTE = "/user";
 export const USERS_ROUTE = "/users";
 export const UNITS_ROUTE = "/units";
 export const STATS_ROUTE = "/stats";
+export const CATEGORY_ROUTE = "/categories";

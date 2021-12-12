@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 const WindowNodeHandler = require("./ElectronComponents/WindowNodeHandler");
+const ReportCreator = require("./ElectronComponents/ReportCreator/ReportCreator");
 if (require("electron-squirrel-startup")) {
   app.quit();
 }
@@ -33,6 +34,11 @@ app.on("ready", createWindow);
 
 ipcMain.on("toMain", (event, args) => {
   WindowNodeHandler(args, mainWindow);
+});
+
+ipcMain.on("createReport", (event, args) => {
+  console.log(args);
+  ReportCreator(JSON.stringify(args, null, 2));
 });
 
 app.on("window-all-closed", () => {
