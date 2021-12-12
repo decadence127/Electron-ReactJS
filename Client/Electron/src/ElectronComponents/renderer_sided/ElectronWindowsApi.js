@@ -2,7 +2,9 @@ class ElectronWindowsApi {
   constructor() {
     this.isMaximized = false;
   }
-
+  createReport(data) {
+    window.api.request("createReport", data);
+  }
   minimize() {
     window.api.request("toMain", "minimize");
     window.api.response("fromMain", (message) => {

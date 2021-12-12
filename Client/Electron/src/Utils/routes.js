@@ -6,6 +6,7 @@ import {
   UNIT_ROUTE,
   USERS_ROUTE,
   UNITS_ROUTE,
+  STATS_ROUTE,
 } from "./pageNames";
 import HomePage from "../Pages/HomePage.jsx";
 import LoginPage from "../Pages/LoginPage.jsx";
@@ -14,6 +15,7 @@ import UserPage from "../Pages/UserPage.jsx";
 import UsersPage from "../Pages/UsersPage";
 import UnitsPage from "../Pages/UnitPage.jsx";
 import UserUnitsPage from "../Pages/UnitsPage";
+import StatsChart from "../Components/StatsChart/StatsChart";
 
 export const publicRoutes = [
   {
@@ -45,5 +47,9 @@ export const authRoutes = [
   {
     path: UNITS_ROUTE,
     Component: UnitsPage,
+  },
+  {
+    path: STATS_ROUTE,
+    Component: StatsChart,
   },
 ];

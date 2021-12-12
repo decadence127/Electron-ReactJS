@@ -10,9 +10,11 @@ import SearchBar from 'material-ui-search-bar'
 import Paper from '@mui/material/Paper';
 import TablePaginator from '../TablePaginator/TablePaginator';
 import { EnhancedTableHead, EnhancedTableToolbar, getComparator, stableSort } from '../EnhancedTableHead/EnhancedTableHead';
-import { Checkbox, Chip } from '@mui/material';
+import { Button, Checkbox, Chip } from '@mui/material';
+import ElectronWindowsApi from '../../ElectronComponents/renderer_sided/ElectronWindowsApi';
 
 const UnitsList = ({ units, setReload }) => {
+  const windowApi = new ElectronWindowsApi();
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('unitTitle');
   const [page, setPage] = React.useState(0);
@@ -25,10 +27,14 @@ const UnitsList = ({ units, setReload }) => {
 
   const requestSearch = (searchedVal) => {
     const filteredRows = units.filter((row) => {
-      return row.userEmail.toLowerCase().includes(searchedVal.toLowerCase());
+      return row.unitTitle.toLowerCase().includes(searchedVal.toLowerCase());
     });
     setUsers(filteredRows);
   };
+
+  const createReport = () => {
+    windowApi.createReport(units)
+  }
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -50,7 +56,7 @@ const UnitsList = ({ units, setReload }) => {
   };
 
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - units.length) : 0;
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -138,7 +144,7 @@ const UnitsList = ({ units, setReload }) => {
               <TableCell key={units.id} align="right">{unit.taxValue}</TableCell>
               <TableCell key={units.id} align="right">{unit.userEmail}</TableCell>
               <TableCell key={units.id} align="right">{unit.unitDesc}</TableCell>
-              <TableCell key={units.id} align="right">{unit.categoryList.map((category) => category.category)}</TableCell>
+              <TableCell key={units.id} align="right">{unit.categoryList.map((category) => category.category + " ")}</TableCell>
               <TableCell key={units.id} align="right">{unit.arrivalDate}</TableCell>
             </TableRow>)
           })}
@@ -174,8 +180,9 @@ const UnitsList = ({ units, setReload }) => {
           </TableRow>
         </TableFooter>
       </Table>
-
+      <Button onClick={createReport}>Создать отчет</Button>
     </TableContainer>
+
   );
 };
 

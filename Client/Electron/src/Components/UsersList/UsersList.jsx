@@ -52,7 +52,7 @@ const UsersList = ({ users, setReload }) => {
   };
 
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - users.length) : 0;
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);

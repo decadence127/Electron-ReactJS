@@ -1,23 +1,39 @@
 import Connectrors.ITcpConnector;
 import Connectrors.TcpConnector;
 import Context.PostgresContext;
-import Context.UserContext;
 import Controllers.ThreadHandler;
-import Models.EntityModel.UserEntityModel;
-import Models.TransferModels.TransferRequestModel;
 import Models.TransferModels.TransferResponseModel;
 import Utils.ConstTypes;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.sql.SQLException;
+import java.util.Properties;
 
 
 public class Program {
     public static void main(String[] args) throws SQLException, IOException {
         PostgresContext context = PostgresContext.getInstance();
-        ITcpConnector initialTcpConnector = new TcpConnector(5000);
+        Properties props = new Properties();
 
-        System.out.println("Server started on 127.0.0.1:" + 5000 + "!");
+        URL resource = PostgresContext.class.getClassLoader().getResource("config.properties");
+        try {
+            assert resource != null;
+            try (InputStream in = Files.newInputStream(Path.of(resource.toURI()))) {
+                props.load(in);
+            }
+        } catch (URISyntaxException | IOException e) {
+            e.printStackTrace();
+        }
+
+        String port = props.getProperty("PORT");
+        ITcpConnector initialTcpConnector = new TcpConnector(Integer.parseInt(port));
+
+        System.out.println("Server started on 127.0.0.1:" + Integer.parseInt(port) + "!");
         try {
             while (true) {
                 System.out.println("Listening for client");

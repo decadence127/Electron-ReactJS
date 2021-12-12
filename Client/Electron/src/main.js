@@ -1,7 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 const WindowNodeHandler = require("./ElectronComponents/WindowNodeHandler");
-
 if (require("electron-squirrel-startup")) {
   app.quit();
 }
@@ -12,6 +11,7 @@ const createWindow = () => {
     width: 1280,
     height: 920,
     frame: false,
+    icon: __dirname + "/assets/Customs.ico",
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
