@@ -57,7 +57,7 @@ public class UnitContext {
         preparedStatement.executeUpdate();
         String sqlDesc = "UPDATE %s SET \"Description\" = ? WHERE \"Id\" = ?".formatted(sqlDescTable);
         PreparedStatement preparedStatement1 = connection.prepareStatement(sqlDesc);
-        if(unit.getUnitDesc() != ""){
+        if(unit.getUnitDesc() != null){
             preparedStatement1.setString(1, unit.getUnitDesc());
             preparedStatement1.setInt(2,unit.getId());
             preparedStatement1.executeUpdate();

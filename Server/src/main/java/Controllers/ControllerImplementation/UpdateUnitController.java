@@ -30,6 +30,7 @@ public class UpdateUnitController extends BaseRequestController<UpdateUnitReques
             throw new Exception("Введите новое наименование");
         }
         unit.setId(updateUnitRequestTransferModel.getId());
+        
         unit.setUnitDesc(updateUnitRequestTransferModel.getUnitDesc());
         unit.setUnitTitle(updateUnitRequestTransferModel.getUnitTitle());
         UnitContext.updateUnitById(unit);
