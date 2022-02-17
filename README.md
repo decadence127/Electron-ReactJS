@@ -9,7 +9,7 @@ Server technologes: Java EE, JUnit for unit-testing.
 
 Client technologies: ElectronJs, ReactJs, MaterialUi, MobX, ExpressJs(used to build connection tunnel), Axios, React-router-dom, webpack.
 
-Database Layout: PostgreSQL, JDBC(Взаимодействие с базой данных).
+Database Layout: PostgreSQL, JDBC(Interaction with database).
 
 RU:
 Десктопное приложение, построенное с использованием фреймворка ElectronJs. Основной функционал приложение заключен в подсчете величины таможенных сборов и документации поступающих из-за границы вещей(Например: Автомобили, покупки). Приложение имеет функции создания отчета в текстовом формате, и формате json, а также модуль статистики, основанный на данных из базы данных.
